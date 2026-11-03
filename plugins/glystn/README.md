@@ -15,6 +15,8 @@ Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign i
 | `creator-content-strategy` | A content playbook from a niche's outliers, by account size |
 | `write-content-scripts` | Ready-to-shoot scripts, hooks and captions modeled on a niche's outliers, in the account's voice |
 | `consumer-verbatims` | What people say about a product or category, by theme, with exact linked quotes |
+| `campaign-recap` | Whether a campaign's creators said the key messages and disclosed it, with quotes |
+| `explain-a-spike` | Why talk about a subject jumped: when, who set it off, what changed |
 | `analyze-youtube-videos` | YouTube videos by link: transcripts, views, top comments and paid placements, compared |
 
 The skills name tools by their MCP names (`count_mentions`, `find_creators`, ...), so they work whichever way the server is connected.

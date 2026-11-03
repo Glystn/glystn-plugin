@@ -11,7 +11,7 @@
     {
       "name": "glystn",
       "source": "./plugins/glystn",
-      "description": "Social intelligence from what creators say in Instagram and TikTok videos, plus YouTube videos by link: size topics, compare brands, find and vet creators, collect consumer verbatims, write scripts from what's breaking out, analyze thousands of posts, and map trends."
+      "description": "Social intelligence from what creators say in Instagram and TikTok videos, plus YouTube videos by link: size topics, compare brands, find and vet creators, recap campaigns, collect consumer verbatims, write scripts from what's breaking out, analyze thousands of posts, and map trends."
     }
   ]
 }
