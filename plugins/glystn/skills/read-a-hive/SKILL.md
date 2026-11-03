@@ -23,4 +23,4 @@ A hive is a subject Glystn follows for the user: every post about it is filed by
 
 ## Report
 
-Lead with the number and its window ("1,240 posts about it the week of Oct 6, up 18% on the week before"), then the evidence. A hive the user can't see, or a dashboard that isn't open to them, comes back as a refusal: relay it in plain words.
+Lead with the number and its window ("1,240 posts about it the week of Oct 6, up 18% on the week before"), then the evidence. A hive the user can't see, or a dashboard that isn't open to them, comes back as a refusal: relay it in plain words. End with the hive's link from `list_hives`, so the user can open its dashboard in Glystn.
