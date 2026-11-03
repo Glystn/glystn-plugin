@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "glystn": {
+      "type": "http",
+      "url": "https://app.glystn.com/api/mcp"
+    }
+  }
+}

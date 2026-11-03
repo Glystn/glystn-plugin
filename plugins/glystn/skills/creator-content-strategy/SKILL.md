@@ -1,0 +1,37 @@
+---
+name: creator-content-strategy
+description: Build a content playbook for a creator or brand account from what breaks out in its niche on Instagram and TikTok - outlier posts from accounts of the same size, what they do that the same creators' usual posts don't, and hooks and formats to try. Use for "what should I post", "what's working for creators like me", content strategy, and outliers in a niche.
+---
+
+# Creator content strategy
+
+An outlier is a post that beat its own creator's usual likes (`outlier` on each row: 3 means three times their usual). Outliers are the evidence here: they show what lifts an account above its own baseline, which a list of the biggest posts in a niche can't, since those mostly show who is already big.
+
+## Steps
+
+1. **The niche and the account's size.** Write the niche as a keyword spec (or a `social_search` query when it's fuzzy) and size it with `count_mentions`. Pick the follower bracket of the account the playbook is for: under 10k, 10k-100k, 100k-1M, or 1M+. What breaks out differs by size, so never mix brackets in one playbook. Without an account, ask which size they want, or run two brackets and compare them.
+2. **Pull the bracket's outliers.** `exact_match_search` with `outliersOnly: true`, `minFollowers`/`maxFollowers` for the bracket, `sort: "outlier"`, the last 90 days and `limit` 300-1,000; or `social_search` with the same filters. Lower `minLikes` for small brackets: the 1,000-like default hides most outliers of accounts under 10k (try 50-100 there). For stronger evidence, keep rows with `outlier` of 5 or more in code.
+3. **Their usual posts, from the same creators.** Take the 15-30 creators with the most outliers and pull each one's recent posts with `creator_posts` (`limit: 100`, compact). Their usual posts are the ones with `outlier` between 0.5 and 1.5. Compare outliers with these, creator by creator: comparing against other creators mostly measures who is bigger.
+4. **Find the patterns with code** (see the analyze-posts-at-scale skill for handling large results). For outliers against usual posts, count:
+   - the opening line (the transcript's first sentence): a question, a bold claim, POV or "me when", a story, a how-to;
+   - talking or not (`textKind`: only `speech` is talking);
+   - the angle on the niche (the activity itself, gear, a mistake, a result, the creator's life);
+   - asks to follow, like, tag or comment;
+   - lines or templates that several creators reuse.
+   A pattern counts only when it shows up for at least 3 different creators and is more common among outliers than in the same creators' usual posts. One creator's repeat hit is not a pattern.
+5. **Watch the examples.** For each pattern, read 3-5 outliers and link them. Glystn reads speech and captions, not the picture: on-screen text, the sound, editing and length are only visible in the video itself, so tell the user to watch the linked examples for those.
+
+## Report
+
+A playbook for the bracket:
+- **5-8 patterns**, each with what it is, the evidence ("12 of 60 outliers from 9 creators, against 4% of their usual posts"), 2-3 linked examples with their opening lines, and how to make one.
+- **What to skip**: patterns more common in usual posts than in outliers.
+- **Ideas to test**: 3-5 concrete post ideas for the account, each tied to a pattern.
+- The niche spec, bracket, window and how many outliers and creators it covers.
+
+## Patterns worth checking
+
+From Glystn's earlier study of one niche, so check whether they hold here before repeating them:
+- Small accounts' outliers were mostly about the activity itself (POV, the moment, little editing); accounts over 100k leaned on personality and vlogs.
+- Asks to follow or tag were twice as common in usual posts as in outliers.
+- A joke or relatable line in the first seconds helped, often written on screen, which Glystn can't read: look for it in the examples.
