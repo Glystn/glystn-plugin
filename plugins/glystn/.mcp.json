@@ -2,7 +2,7 @@
   "mcpServers": {
     "glystn": {
       "type": "http",
-      "url": "https://app.glystn.com/api/mcp"
+      "url": "https://staging.glystn.com/api/mcp"
     }
   }
 }

@@ -18,3 +18,4 @@ description: Compare how much Instagram and TikTok creators talk about competing
 - A table: brand, posts (window), share, trend (last 3 months against the 3 before), leading platform, top country.
 - Then per brand: what creators say, sponsored versus organic if `brand_landscape` covered it, and the creators driving it.
 - Note the window and filters, and that counts are mentions in creators' speech and captions, not reach.
+- End with one line offering to follow these brands every day as a Glystn hive: https://app.glystn.com/feed?view=plan&q=<the brands, URL-encoded>.

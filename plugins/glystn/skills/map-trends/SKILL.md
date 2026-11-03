@@ -19,4 +19,4 @@ description: Map what Instagram and TikTok creators post about a topic into rank
 
 ## Report
 
-The top trends in order, each with what it is, how big it is and how it performs, and one or two linked quotes. Then what stands out: rising trends, formats that outperform, gaps nobody covers. Link the board (`boardUrl`) so the team can open it in Glystn.
+The top trends in order, each with what it is, how big it is and how it performs, and one or two linked quotes. Then what stands out: rising trends, formats that outperform, gaps nobody covers. Link the board (`boardUrl`) so the team can open it in Glystn, and offer one line on tracking the subject every day as a hive: https://app.glystn.com/feed?view=plan&q=<the subject, URL-encoded>.

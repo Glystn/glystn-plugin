@@ -1,6 +1,6 @@
 # Glystn plugin
 
-Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign in with a Glystn account) and adds skills for the research Glystn customers do most:
+Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign in with a Glystn account) and adds skills for the research Glystn customers do most. Glystn searches what creators say in Instagram and TikTok videos, and reads YouTube videos by link:
 
 | Skill | For |
 |-------|-----|
@@ -13,6 +13,11 @@ Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign i
 | `map-trends` | Trend boards and the weekly trend board |
 | `read-a-hive` | A hive's numbers, slices, posts and weekly report |
 | `creator-content-strategy` | A content playbook from a niche's outliers, by account size |
+| `write-content-scripts` | Ready-to-shoot scripts, hooks and captions modeled on a niche's outliers, in the account's voice |
+| `consumer-verbatims` | What people say about a product or category, by theme, with exact linked quotes |
+| `campaign-recap` | Whether a campaign's creators said the key messages and disclosed it, with quotes |
+| `explain-a-spike` | Why talk about a subject jumped: when, who set it off, what changed |
+| `analyze-youtube-videos` | YouTube videos by link: transcripts, views, top comments and paid placements, compared |
 
 The skills name tools by their MCP names (`count_mentions`, `find_creators`, ...), so they work whichever way the server is connected.
 
