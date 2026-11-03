@@ -16,7 +16,7 @@ Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign i
 
 The skills name tools by their MCP names (`count_mentions`, `find_creators`, ...), so they work whichever way the server is connected.
 
-Try it locally with Claude Code: `claude --plugin-dir <path to this folder>`.
+Install in Claude Code with `/plugin install glystn --marketplace Glystn/glystn-plugin` (on older versions, `/plugin marketplace add Glystn/glystn-plugin`, then `/plugin install glystn@glystn`). To try a local copy: `claude --plugin-dir <path to this folder>`.
 
 ## What it runs and sends
 
