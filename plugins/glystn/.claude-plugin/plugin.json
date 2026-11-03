@@ -1,7 +1,7 @@
 {
   "name": "glystn",
-  "version": "1.0.0",
-  "description": "Social intelligence from what creators say in Instagram and TikTok videos: size topics, compare brands, find and vet creators, analyze thousands of posts, and map trends.",
+  "version": "1.1.0",
+  "description": "Social intelligence from what creators say in Instagram and TikTok videos, plus YouTube videos by link: size topics, compare brands, find and vet creators, collect consumer verbatims, write scripts from what's breaking out, analyze thousands of posts, and map trends.",
   "author": {
     "name": "Glystn",
     "email": "support@glystn.com",
@@ -15,7 +15,10 @@
     "influencer marketing",
     "instagram",
     "tiktok",
-    "trends"
+    "youtube",
+    "trends",
+    "voice of the customer",
+    "content strategy"
   ],
   "privacyPolicyUrl": "https://glystn.com/privacy-policy",
   "termsOfServiceUrl": "https://glystn.com/terms-of-service"
