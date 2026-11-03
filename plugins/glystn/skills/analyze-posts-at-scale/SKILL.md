@@ -12,8 +12,9 @@ Glystn can return up to 1,000 compact rows (about 400 bytes each: id, url, platf
 1. **Spec and size.** Build the keyword spec and run `count_mentions` so you know how many posts exist and how the total splits by month and likes. Set `minLikes` to what the question needs (0 for everything, 1,000 by default).
 2. **Pull.** `exact_match_search` with `limit: 1000` (rows come compact in Claude and ChatGPT; pass `detail: "compact"` with an API key). Pick `sort`: `likes` for the strongest posts, `outlier` for posts that beat their creator's usual, `date` for the newest. For more than 1,000, page with `offset` (`nextOffset` in the result; `hasMore` says whether there is more).
 3. **Keep it out of the conversation.** With a code sandbox (Claude Code, Cowork, ChatGPT with code), work from the saved result file and load it with Python or jq; don't paste rows into the chat. Without one, pull 200 rows at a time and keep a running tally.
-4. **Analyze with code.** Group and count by month, platform, country, creator size band, `textKind` and engagement. For themes, tag rows by keywords in `text`, then check a sample of each tag by hand. Dedupe on `id` if you merged pages.
-5. **Read the evidence.** For each finding, read 3-5 of the rows behind it. `text` is the first 280 characters; for the whole transcript of a few posts, use `get_posts` with their URLs or a small `exact_match_search` pull with `detail: "full"`.
+4. **Count with code.** Group and count by month, platform, country, creator size band, `textKind` and engagement. Dedupe on `id` if you merged pages.
+5. **Read the posts for what they say.** Keywords can't tell a theme, a claim or a stance apart, so read them. Write a short label list from a first sample of about 50 rows (themes, claims, formats, stance, whatever the question needs). Then split the rows into batches of about 100. If you can start subagents, give each one a batch and the label list and run them in parallel; otherwise label the batches yourself one by one. Each row gets its labels and a short quote, as JSON. Merge the labels in code and count them like any other field.
+6. **Read the evidence.** For each finding, read 3-5 of the rows behind it. `text` is the first 280 characters; for the whole transcript of a few posts, use `get_posts` with their URLs or a small `exact_match_search` pull with `detail: "full"`.
 
 ## Report
 
