@@ -19,7 +19,7 @@ About 12-20 credits: one `count_mentions` per week (6-8), a few window pulls, tw
    - whether the biggest posts started it or reacted to it;
    - whether others name the first creator, or stitch or duet them;
    - whether `outlier` shows posts that beat their creator's usual.
-5. **Compare what people said before and during.** Take the spike's posts and the same number from the 4 weeks before. Label both sets with one list (topic, stance, paid or not): read about 50 posts to write it, then read in batch files of about 200,000 characters, never one post at a time, with one reader subagent per batch where you can start them (all in the same turn, each writing JSON lines with code), merged in code with every id checked. Then compare:
+5. **Compare what people said before and during.** For a quick first read, run `exact_match_search` with `themes: true` over each window: it groups up to 1,000 posts into themes with their shares. Then take the spike's posts and the same number from the 4 weeks before. Label both sets with one list (topic, stance, paid or not): read about 50 posts to write it, then read in batch files of about 200,000 characters, never one post at a time, with one reader subagent per batch where you can start them (all in the same turn, each writing JSON lines with code), merged in code with every id checked. Then compare:
    - topics new in the spike;
    - the shift in stance;
    - phrases that repeat (in code: 3-5 word phrases far more common in the spike than before, such as a quote, a sound or a meme format);
