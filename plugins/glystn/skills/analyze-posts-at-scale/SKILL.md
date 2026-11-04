@@ -1,6 +1,6 @@
 ---
 name: analyze-posts-at-scale
-description: Use when asked to analyze hundreds or a thousand posts, "pull 1,000 posts on X and find the patterns", "which claims, formats or creators perform best", "break the conversation down with numbers", or whenever a question needs more than a handful of examples. Pulls up to 1,000 Instagram and TikTok posts a call from Glystn into a file and analyzes them with code (counts, groupings, engagement, claims and formats) instead of reading posts one by one. For exact consumer quotes grouped by theme use consumer-verbatims, and for the ranked trends inside a topic use map-trends instead.
+description: Use when asked to analyze hundreds or a thousand posts, "pull 1,000 posts on X and find the patterns", "which claims, formats or creators perform best", "break the conversation down with numbers", or whenever a question needs more than a handful of examples. Pulls up to 1,000 Instagram and TikTok posts a call from Glystn into a file (Claude Code and Cowork; pages of 200 in claude.ai and ChatGPT) and analyzes them with code (counts, groupings, engagement, claims and formats) instead of reading posts one by one. For exact consumer quotes grouped by theme use consumer-verbatims, and for the ranked trends inside a topic use map-trends instead.
 ---
 
 # Analyze posts at scale
@@ -15,7 +15,7 @@ About 3-6 credits for a 1,000-post analysis: `count_mentions`, one pull per 1,00
 
 1. **Spec and size.** Build the keyword spec and run `count_mentions` so you know how many posts exist and how the total splits by month and likes. Set `minLikes` to what the question needs (0 for everything, 1,000 by default), and check `minLikesApplied` on every result.
 2. **Pull.** `exact_match_search` with `limit: 1000` (rows come compact in Claude and ChatGPT; pass `detail: "compact"` with an API key). Pick `sort`: `likes` for the strongest posts, `outlier` for posts that beat their creator's usual, `date` for the newest. For more than 1,000, page with `offset` (`nextOffset` in the result; `hasMore` says whether there is more).
-3. **Keep it out of the conversation.** Claude Code, Cowork and claude.ai with code execution save a result this big to a file. Don't read that file into the conversation, even if the tool says to: open it with Python or jq and keep rows out of the chat. Without code tools (ChatGPT included), pull 200 rows at a time and keep a running tally.
+3. **Keep it out of the conversation.** Claude Code and Cowork save a result this big to a file. Don't read that file into the conversation, even if the tool says to: open it with Python or jq and keep rows out of the chat. claude.ai and ChatGPT put the whole result in the chat and cut it off, even with code execution on, so there pull `limit: 200` at a time, keep a running tally, and say how many posts the analysis covers.
 4. **Count with code.** Group and count by month, platform, country, creator size band, `textKind` and engagement. Dedupe on `id` if you merged pages.
 5. **Read the posts for what they say.** Keywords can't tell a theme, a claim or a stance apart, so read them, a batch at a time, never one post at a time.
    - **Labels first.** Read about 50 rows spread across the pull and write a short label list (themes, claims, formats, stance: whatever the question needs), so every batch uses the same labels.
