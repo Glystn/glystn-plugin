@@ -24,6 +24,7 @@ About 12-20 credits: one `count_mentions` per week (6-8), a few window pulls, tw
    - the shift in stance;
    - phrases that repeat (in code: 3-5 word phrases far more common in the spike than before, such as a quote, a sound or a meme format);
    - the paid share.
+   Then size the new topics and phrases in both windows with `compare_mentions` (the spec as `topic`, each phrase a spec, once over the spike weeks and once over the 4 weeks before), so the shift is a count across every post, not a read of a sample.
 6. **Check whether it's holding.** Look at posts per day after the peak, and whether new creators keep joining each day.
 
 ## Freshness

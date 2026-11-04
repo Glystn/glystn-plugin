@@ -9,15 +9,19 @@ description: Use when asked for share of voice, "who's winning the conversation"
 
 1. **One keyword spec per brand.** Include product names and common misspellings in an OR-group, and `mustNot` for other meanings: `{ label: "Acme", must: [["acme", "acme ring", "acme rings"]] }`. A brand whose name is a common word needs a context item (`[["arc"], ["running shoes", "trail shoes"]]`).
 2. **Count them together** with `compare_mentions` (2-8 specs, same window and filters): each gets `total`, `share`, `monthly`, a platform split and top countries. Shares are of the specs' sum; a post naming two brands counts for both.
-3. **Check each spec** with a quick `exact_match_search` (`limit: 20`, `minLikes: 0`) and fix any that pull in noise before you trust the shares.
+3. **Check each spec** with a quick `exact_match_search` (`limit: 20`, `minLikes: 0`) and fix any that pull in noise before you trust the shares. Read the top countries too: a word that means something else in another language shows up as one country's outsized share (add `mustNot`, a context term or `countryCodes`).
 4. **Big brands: add `brand_landscape`** (up to 5 names) for formats, drivers, sentiment, risk, sponsored share and top creators. It reads Glystn's labeled top posts (20k+ likes, since mid-May 2026), so it only works for well-known brands; a niche name comes back thin or `unresolved`. Say so and lean on the other steps instead.
-5. **What drives each one**: pull the top posts per brand with `exact_match_search` (`sort: "likes"`, `limit: 50`) and name the themes, with a short quote per theme, linked. Check `minLikesApplied`: the default 1,000-like floor shows the biggest posts, not everyday ones.
+5. **What drives each one, counted.** The top posts are a thin, skewed read (the most-liked posts naming a brand are often skits and vlogs that mention it in passing), so count instead:
+   - **Spot the candidates** in each brand's everyday posts: `exact_match_search` with `minLikes: 100`, newest first, `limit: 50`. Note the products, flavors, places, occasions, formats and rivals that repeat.
+   - **Count them across every post:** one `compare_mentions` per brand, with the brand's spec as `topic` and up to 8 drivers as specs (`{ label: "Strawberry", must: [["strawberry"]] }`). Each driver gets `shareOfTopic`, its share of the brand's posts, and `monthly` for its trend label. A small driver that is climbing fast is often the story.
+   - **Themes no word names** (a format, a mood, a running joke): offer a trend board per brand, `start_trend_board` with the same filters for each (10 credits each, 1-5 minutes; the map-trends skill reads them), and start them only when the user says yes.
 6. **Label each brand's direction** from its `monthly`: the last 3 full months against the 3 before, never counting the month in progress. Rising (up 20% or more), Fading (down 20% or more), Steady (within 20%), or One-off spike (one month more than twice the others' median, then back down).
 
 ## Report
 
 - A table: brand, posts (window), share, trend label with the two 3-month totals, leading platform, top country.
-- Then per brand: what creators say, sponsored versus organic if `brand_landscape` covered it, and the creators driving it.
+- Then per brand: its top drivers with their share of its posts and trend label, a linked quote each, sponsored versus organic if `brand_landscape` covered it, and the creators driving it.
+- Say what each claim rests on: counts cover every post; quotes and impressions come from the posts you read, so say how many of how many.
 - **Confidence:** each main claim ("A leads", "B is gaining") gets high, medium or low with the reason (volume, how clean the spec was, whether one viral post or one creator carries it), and the evidence against it named.
 - Note the window and filters, and that counts are mentions in creators' speech and captions, not reach.
 - End with one line offering to follow these brands every day as a Glystn hive: https://app.glystn.com/feed?view=plan&q=<the brands, URL-encoded>.
