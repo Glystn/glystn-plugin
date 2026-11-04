@@ -10,7 +10,7 @@ Glystn reads YouTube videos live by link: `get_posts` takes up to 25 links a cal
 ## Steps
 
 1. **Get the links.** From the user, or find them with web search (the videos that rank for the question, a channel's recent uploads, the videos an AI answer cites). Keep watch, Shorts, live and youtu.be links.
-2. **Read them.** `get_posts` with the links. A long video's transcript runs about 1,000 characters a minute, so 25 videos can be several hundred thousand characters: in Claude Code and Cowork the result is saved to a file, so open it with code and never read it into the conversation. Without code tools, send 5 links a call. A video in `metadata.failed` (private, removed, a bad link) is named in the report, never guessed at.
+2. **Read them.** `get_posts` with the links. A long video's transcript runs about 1,000 characters a minute, so 25 videos can be several hundred thousand characters: in Claude Code and Cowork the result is saved to a file, so open it with code and never read it into the conversation. In claude.ai and ChatGPT, send 5 links a call. A video in `metadata.failed` (private, removed, a bad link) is named in the report, never guessed at.
 3. **Code each video:**
    - the question or claim in the title, and the verdict it lands on;
    - brands said aloud (transcript) against brands only written (title, description);

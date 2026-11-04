@@ -26,7 +26,7 @@ Glystn's vetting reads each creator's own posts for every criterion and scores h
    - `notIndexedYet`: Glystn reads their posts first, which takes a few minutes; they're scored on a later run.
    - `noInstagramOrTiktok`: can't be vetted.
 5. **Vet.** `vet_creators` with `listId`, `criteria`, and `location` or `context` if they apply. It returns at once with the credits charged and the progress. In Claude's apps the card follows the run and turns into the ranked shortlist by itself; tell the user in one line that it's running.
-6. **Read the results.** `get_creator_list({listId, wait: true})` waits up to 45 seconds; call it again while `status` is `running`. `includeDisqualified: true` adds who was cut and why.
+6. **Read the results.** If the result's `note` says the chat's card follows the run, tell the user in one line that the shortlist will fill in on the card and end your turn; read it with `get_creator_list({listId})` when they ask. Otherwise `get_creator_list({listId, wait: true})` waits up to 45 seconds; call it again while `status` is `running`. `includeDisqualified: true` adds who was cut and why.
 7. **Score the late arrivals.** Creators under `notScored.indexing` are still being read. Once they move to `readyToScore`, `vet_creators({listId})` with no criteria scores just them with the saved ones, 1 credit each. Don't reword the criteria to do it: new wording re-scores everyone.
 
 ## Report
