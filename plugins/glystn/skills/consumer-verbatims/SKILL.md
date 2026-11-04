@@ -1,6 +1,6 @@
 ---
 name: consumer-verbatims
-description: Use when asked what people say about a product, brand or category, for verbatims, voice of the customer, "real quotes for our deck", pain points, objections, unmet needs, or how people describe a product in their own words. Collects what people actually say on camera on Instagram and TikTok with Glystn, grouped into themes with counts and exact linked quotes, with paid posts kept apart. For counts and patterns across a thousand posts use analyze-posts-at-scale, and for one brand against its competitors use share-of-voice instead.
+description: Use when asked what people say about a product, brand or category, for verbatims, voice of the customer, "real quotes for our deck", pain points, objections, unmet needs, or how people describe a product in their own words. Collects what people actually say on camera on Instagram and TikTok with Glystn, grouped into themes with counts and exact linked quotes, with paid posts kept apart. For one brand against its competitors use share-of-voice instead.
 ---
 
 # Consumer verbatims

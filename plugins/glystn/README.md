@@ -11,7 +11,6 @@ Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign i
 | `map-trends` | Trend boards and the weekly trend board | "What are the trends in at-home skincare right now?" |
 | `break-down-a-post` | Why one video blew up against the creator's usual numbers, and what to reuse | "Why did this Reel blow up? <link>" |
 | `consumer-verbatims` | What people say about a product or category, by theme, with exact linked quotes | "What do people say about our new sparkling water, in their own words?" |
-| `analyze-posts-at-scale` | Pulling ~1,000 posts and analyzing them with code | "Pull 1,000 posts about meal kits and tell me which claims perform best" |
 | `find-creators` | A creator shortlist from a brief | "Find 30 US creators who talk about budget travel with kids" |
 | `vet-a-list` | A list of creators scored against a brief, with the quote behind each score, kept in Glystn | "Score these 20 creators for a UK protein brand launch" |
 | `vet-a-creator` | Due diligence and brand safety on one creator | "Is @handle brand safe for a family snack brand?" |

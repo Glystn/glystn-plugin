@@ -23,7 +23,6 @@ Glystn searches what people say in Instagram and TikTok videos (spoken transcrip
 - The trends inside a topic, or what's trending this week: map-trends
 - Why one video blew up, and what to reuse from it: break-down-a-post
 - Exact quotes of what people say about a product, by theme: consumer-verbatims
-- Hundreds or a thousand posts analyzed with code: analyze-posts-at-scale
 - A creator shortlist from a brief: find-creators
 - A list of creators scored against a brief, kept in Glystn: vet-a-list
 - Due diligence and brand safety on one creator: vet-a-creator
