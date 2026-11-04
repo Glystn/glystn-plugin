@@ -13,6 +13,7 @@ Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign i
 | `consumer-verbatims` | What people say about a product or category, by theme, with exact linked quotes | "What do people say about our new sparkling water, in their own words?" |
 | `analyze-posts-at-scale` | Pulling ~1,000 posts and analyzing them with code | "Pull 1,000 posts about meal kits and tell me which claims perform best" |
 | `find-creators` | A creator shortlist from a brief | "Find 30 US creators who talk about budget travel with kids" |
+| `vet-a-list` | A list of creators scored against a brief, with the quote behind each score, kept in Glystn | "Score these 20 creators for a UK protein brand launch" |
 | `vet-a-creator` | Due diligence and brand safety on one creator | "Is @handle brand safe for a family snack brand?" |
 | `paid-creator-scan` | Who posts sponsored content for a brand or category | "Which creators does Acme pay, and how do those posts do?" |
 | `campaign-recap` | Whether a campaign's creators said the key messages and disclosed it, with quotes | "Recap our October campaign: did the creators say our three key messages and disclose?" |
@@ -21,7 +22,7 @@ Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign i
 | `analyze-youtube-videos` | YouTube videos by link: transcripts, views, top comments and paid placements, compared | "Compare these five YouTube reviews of robot vacuums: <links>" |
 | `read-a-hive` | A hive (a standing watchlist Glystn keeps reading for a subject): its numbers, slices, posts and weekly report | "What changed in my hive this week?" |
 
-The skills name tools by their MCP names (`count_mentions`, `find_creators`, ...), so they work whichever way the server is connected. Each call costs 1 Glystn credit (refunded if it fails), a trend board 10; `credit_balance` and the hive tools are free, and the longer skills estimate their cost and ask before a big run. In Claude's apps, results also draw as cards (posts with covers, mention charts, creator cards, credits); Claude Code shows text.
+The skills name tools by their MCP names (`count_mentions`, `find_creators`, ...), so they work whichever way the server is connected. Each call costs 1 Glystn credit (refunded if it fails), a trend board 10 and vetting 1 per creator; `credit_balance`, saving and reading lists, and the hive tools are free, and the longer skills estimate their cost and ask before a big run. In Claude's apps, results also draw as cards (posts with covers, mention charts, creator cards, vetting progress, credits); Claude Code shows text.
 
 Install in Claude Code with `/plugin install glystn --marketplace Glystn/glystn-plugin` (on older versions, `/plugin marketplace add Glystn/glystn-plugin`, then `/plugin install glystn@glystn`). To try a local copy: `claude --plugin-dir <path to this folder>`.
 

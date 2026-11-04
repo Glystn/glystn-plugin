@@ -1,6 +1,6 @@
 ---
 name: find-creators
-description: Use when asked to "find creators who...", "who should we work with for X", "creators like @handle or like this post", "dermatologists on TikTok", "UK food creators under 100k", or for influencer discovery, casting or a creator shortlist from a brief. Builds the list with Glystn from what creators actually say in their Instagram and TikTok videos (or what their bios say), then compares their numbers. For due diligence on one creator use vet-a-creator, and for creators already posting sponsored content for a brand use paid-creator-scan instead.
+description: Use when asked to "find creators who...", "who should we work with for X", "creators like @handle or like this post", "dermatologists on TikTok", "UK food creators under 100k", or for influencer discovery, casting or a creator shortlist from a brief. Builds the list with Glystn from what creators actually say in their Instagram and TikTok videos (or what their bios say), then compares their numbers. To score the shortlist against the brief use vet-a-list, for due diligence on one creator use vet-a-creator, and for creators already posting sponsored content for a brand use paid-creator-scan instead.
 ---
 
 # Find creators
@@ -28,7 +28,7 @@ A shortlist of 20 is usually 3-8 credits (1 a call; `creator_profiles` takes 20 
 
 ## Report
 
-A table: handle (linked), platform, followers, median views, view rate, sponsored share, country, and one line on why they fit with a linked example post. Then a sentence on how you searched, so the list can be rerun. End with one line: Glystn's agent can save the shortlist as a list and vet every creator on it, at https://app.glystn.com/ai?q=<the brief, URL-encoded>.
+A table: handle (linked), platform, followers, median views, view rate, sponsored share, country, and one line on why they fit with a linked example post. Then a sentence on how you searched, so the list can be rerun. End with one line offering the next step: save the shortlist as a Glystn list and score every creator against the brief (vet-a-list, 1 credit per creator).
 
 ## Ground rules
 

@@ -1,6 +1,6 @@
 ---
 name: vet-a-creator
-description: Use when asked to vet a creator, "is this creator a fit for us", "is @handle brand safe", "anything risky in their posts", "who have they worked with", or for creator due diligence or a partnership review on Instagram or TikTok. Reads every post the creator has with Glystn and reports topics, engagement, sponsorships, brand conflicts, location and brand-safety risks, with the posts behind each point. To build a shortlist use find-creators, to see who a brand pays use paid-creator-scan, and to check a finished campaign's posts use campaign-recap instead.
+description: Use when asked to vet a creator, "is this creator a fit for us", "is @handle brand safe", "anything risky in their posts", "who have they worked with", or for creator due diligence or a partnership review on Instagram or TikTok. Reads every post the creator has with Glystn and reports topics, engagement, sponsorships, brand conflicts, location and brand-safety risks, with the posts behind each point. To build a shortlist use find-creators, to score a whole list against a brief use vet-a-list, to see who a brand pays use paid-creator-scan, and to check a finished campaign's posts use campaign-recap instead.
 ---
 
 # Vet a creator
@@ -9,7 +9,7 @@ Read the creator's whole catalog and judge content and brand safety in the same 
 
 ## Credits
 
-About 3-5 credits a creator per platform: `creator_profiles`, one `creator_posts` (1 credit even at `limit: 1000`), `creator_location`, plus `index_creator` and retries for a new creator. A shortlist of 10 is 30-50: check `credit_balance` (free), give the estimate, and confirm before going past about 25.
+About 3-5 credits a creator per platform: `creator_profiles`, one `creator_posts` (1 credit even at `limit: 1000`), `creator_location`, plus `index_creator` and retries for a new creator. A shortlist of 10 is 30-50: check `credit_balance` (free), give the estimate, and confirm before going past about 25. To rank a shortlist against a brief, vet-a-list is 1 credit per creator; keep this skill for the finalists.
 
 ## Steps
 
@@ -74,7 +74,7 @@ Lead with a fit verdict (strong, conditional, or no) and the two or three reason
 
 Say what Glystn could not check: what's only on screen (images, gestures, on-screen text), comments, stories, deleted posts, audience demographics and press coverage.
 
-End with one line: to vet a whole shortlist and keep the results, Glystn's agent vets every creator in a list, at https://app.glystn.com/ai?q=<the request, URL-encoded>.
+End with one line: to score a whole shortlist against the brief and keep the results in Glystn, vet-a-list does it at 1 credit per creator.
 
 ## Ground rules
 
