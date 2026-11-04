@@ -1,6 +1,6 @@
 # Glystn for Claude
 
-The Glystn plugin connects Claude to [Glystn](https://glystn.com), which searches what creators actually say in Instagram and TikTok videos, and adds skills for the research Glystn customers do most: sizing trends, share of voice, finding and vetting creators, paid creator scans, analyzing posts at scale, trend maps, hives, creator content strategy, content scripts, consumer verbatims, campaign recaps, spike explainers and YouTube video research.
+The Glystn plugin connects Claude to [Glystn](https://glystn.com), which searches what people actually say in Instagram and TikTok videos. It's for anyone who can use social data: founders and product teams, brands and agencies, creators, retailers, investors, journalists and researchers. It adds skills for the research they do most, starting with a get-started skill that checks your credits and points you to the right one: sizing trends and testing ideas, share of voice, breaking down why a post blew up, finding and vetting creators, paid creator scans, analyzing posts at scale, trend maps, hives, creator content strategy, content scripts, consumer verbatims, campaign recaps, spike explainers and YouTube video research.
 
 The plugin is in [`plugins/glystn`](plugins/glystn); its [README](plugins/glystn/README.md) lists the skills and what the plugin connects to. You need a Glystn account to sign in.
 

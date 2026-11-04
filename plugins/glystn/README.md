@@ -1,25 +1,28 @@
 # Glystn plugin
 
-Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign in with a Glystn account) and adds skills for the research Glystn customers do most. Glystn searches what creators say in Instagram and TikTok videos, and reads YouTube videos by link:
+Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign in with a Glystn account) and adds skills for research anyone can do with social data, from founders and product teams to brands, agencies, creators, retailers, investors and researchers. Glystn searches what people say in Instagram and TikTok videos, and reads YouTube videos by link:
 
-| Skill | For |
-|-------|-----|
-| `size-a-trend` | How big a topic is and whether it is growing |
-| `share-of-voice` | Competing brands side by side |
-| `find-creators` | A creator shortlist from a brief |
-| `vet-a-creator` | Due diligence on one creator |
-| `paid-creator-scan` | Who posts sponsored content for a brand or category |
-| `analyze-posts-at-scale` | Pulling ~1,000 posts and analyzing them with code |
-| `map-trends` | Trend boards and the weekly trend board |
-| `read-a-hive` | A hive's numbers, slices, posts and weekly report |
-| `creator-content-strategy` | A content playbook from a niche's outliers, by account size |
-| `write-content-scripts` | Ready-to-shoot scripts, hooks and captions modeled on a niche's outliers, in the account's voice |
-| `consumer-verbatims` | What people say about a product or category, by theme, with exact linked quotes |
-| `campaign-recap` | Whether a campaign's creators said the key messages and disclosed it, with quotes |
-| `explain-a-spike` | Why talk about a subject jumped: when, who set it off, what changed |
-| `analyze-youtube-videos` | YouTube videos by link: transcripts, views, top comments and paid placements, compared |
+| Skill | For | Say this |
+|-------|-----|----------|
+| `get-started` | Checks the connection, credits and hives, and points to the right skill | "What can Glystn do for me?" |
+| `size-a-trend` | How big a topic is, whether it's Rising, Steady, Fading or a one-off spike, and whether an idea will land | "Is protein coffee growing on TikTok?" |
+| `share-of-voice` | Competing brands side by side | "Compare share of voice for the top three running-shoe brands this year" |
+| `explain-a-spike` | Why talk about a subject jumped: when, who set it off, what changed | "Why did mentions of our brand jump last week?" |
+| `map-trends` | Trend boards and the weekly trend board | "What are the trends in at-home skincare right now?" |
+| `break-down-a-post` | Why one video blew up against the creator's usual numbers, and what to reuse | "Why did this Reel blow up? <link>" |
+| `consumer-verbatims` | What people say about a product or category, by theme, with exact linked quotes | "What do people say about our new sparkling water, in their own words?" |
+| `analyze-posts-at-scale` | Pulling ~1,000 posts and analyzing them with code | "Pull 1,000 posts about meal kits and tell me which claims perform best" |
+| `find-creators` | A creator shortlist from a brief | "Find 30 US creators who talk about budget travel with kids" |
+| `vet-a-list` | A list of creators scored against a brief, with the quote behind each score, kept in Glystn | "Score these 20 creators for a UK protein brand launch" |
+| `vet-a-creator` | Due diligence and brand safety on one creator | "Is @handle brand safe for a family snack brand?" |
+| `paid-creator-scan` | Who posts sponsored content for a brand or category | "Which creators does Acme pay, and how do those posts do?" |
+| `campaign-recap` | Whether a campaign's creators said the key messages and disclosed it, with quotes | "Recap our October campaign: did the creators say our three key messages and disclose?" |
+| `creator-content-strategy` | A content playbook from a niche's outliers, by account size | "What's working for fitness accounts under 10k followers?" |
+| `write-content-scripts` | Ready-to-shoot scripts, hooks and captions modeled on a niche's outliers, in the account's voice | "Write five scripts I can film this week for my home-cooking account" |
+| `analyze-youtube-videos` | YouTube videos by link: transcripts, views, top comments and paid placements, compared | "Compare these five YouTube reviews of robot vacuums: <links>" |
+| `read-a-hive` | A hive (a standing watchlist Glystn keeps reading for a subject): its numbers, slices, posts and weekly report | "What changed in my hive this week?" |
 
-The skills name tools by their MCP names (`count_mentions`, `find_creators`, ...), so they work whichever way the server is connected.
+The skills name tools by their MCP names (`count_mentions`, `find_creators`, ...), so they work whichever way the server is connected. Each call costs 1 Glystn credit (refunded if it fails), a trend board 10 and vetting 1 per creator; `credit_balance`, saving and reading lists, and the hive tools are free, and the longer skills estimate their cost and ask before a big run. In Claude's apps, results also draw as cards (posts with covers, mention charts, creator cards, vetting progress, credits); Claude Code shows text.
 
 Install in Claude Code with `/plugin install glystn --marketplace Glystn/glystn-plugin` (on older versions, `/plugin marketplace add Glystn/glystn-plugin`, then `/plugin install glystn@glystn`). To try a local copy: `claude --plugin-dir <path to this folder>`.
 
