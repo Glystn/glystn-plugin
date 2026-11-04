@@ -46,7 +46,7 @@ For "is this a good idea for a video, product or campaign" or "does this resonat
 
 ## Going further
 
-- To say what drives it, spot candidates in 50 everyday posts (`minLikes: 100`, newest first), then count them in one `compare_mentions` with this spec as `topic` and up to 8 drivers as specs: each gets its share of the topic's posts (`shareOfTopic`) and its monthly trend. Never give shares of the posts you read as sizes.
+- To say what drives it, spot candidates with `exact_match_search` `themes: true` (`minLikes: 100`: its 1,000 newest everyday posts grouped into themes), then count them in one `compare_mentions` with this spec as `topic` and up to 8 drivers as specs: each gets its share of the topic's posts (`shareOfTopic`) and its monthly trend. Never give shares of the posts you read, or a theme's share, as sizes.
 - To see what the conversation is made of beyond single words, run the `map-trends` skill on the same spec.
 - To find who drives it, run `find_creators` with the topic.
 - End the answer with one line offering to track the topic every day as a Glystn hive: https://app.glystn.com/feed?view=plan&q=<topic, URL-encoded>.
