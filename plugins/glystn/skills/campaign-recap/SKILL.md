@@ -9,7 +9,7 @@ Platform metrics show whether a campaign was seen. Glystn shows what the creator
 
 ## Credits
 
-About 1 credit per 50 creators to find the posts, plus `get_posts` (1 per 25 links) for links that don't come back or for comments, `creator_profiles` for creators with no posts back, and `index_creator` and retries for missing creators: a 20-creator campaign is usually 2-8. Give the estimate and confirm before going past about 25.
+About 1 credit per 50 creators to find the posts, plus `get_posts` (1 per 25 links) for links that don't come back or for comments, and `creator_posts` and retries for creators Glystn doesn't have yet: a 20-creator campaign is usually 2-8. Give the estimate and confirm before going past about 25.
 
 ## Steps
 
@@ -27,7 +27,7 @@ About 1 credit per 50 creators to find the posts, plus `get_posts` (1 per 25 lin
    - the dates as `startDate`/`endDate`;
    - `minLikes: 0` and `detail: "full"` (check `minLikesApplied` is 0 on the result, so small posts aren't dropped).
 
-   If the user gave links that don't come back, run `get_posts` with them (25 a call); it saves a post Glystn didn't have and queues its creator. If none of a creator's posts come back, check `creator_profiles`. A creator showing `indexed: false` can be added with `index_creator`: wait about 90 seconds, then retry the search or `creator_posts` at most 3 times, a minute or two apart, and report any creator whose posts still haven't landed.
+   If the user gave links that don't come back, run `get_posts` with them (25 a call); it saves a post Glystn didn't have and queues its creator. If none of a creator's posts come back, call `creator_posts` for them: it adds a creator Glystn doesn't have (`crawlQueued`). Wait about 90 seconds, then retry the search or `creator_posts` at most 3 times, a minute or two apart, and report any creator whose posts still haven't landed.
 3. **Read every post against the brief.**
    - **Up to about 40 posts:** read them yourself.
    - **More than that:** use reader subagents. Use batch files of about 200,000 characters and one reader per batch, all started in the same turn. Each reader writes JSON lines with code to its own output file; merge them in code and check every id is covered.

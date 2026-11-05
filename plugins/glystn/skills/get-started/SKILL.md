@@ -50,12 +50,12 @@ Every call costs 1 credit, refunded if it fails. `start_trend_board` costs 10 an
 
 ## Cards
 
-In Claude's apps every call draws in the chat: posts with covers, share-of-voice and creator cards, a vetting card and a trend board card that follow their runs, and a count, saving a list, credits, a location, indexing or a later page of posts as one small row that opens. So make the fewest calls an answer needs and offer the rest. Claude Code shows text only. Lead with the finding and cite a few linked posts rather than restating every row a card already shows. Make card-producing calls one at a time when the user is meant to see each. If a card fails to draw, answer from the returned data.
+In Claude's apps every call draws in the chat: posts with covers, share-of-voice and creator cards, a vetting card and a trend board card that follow their runs, and a count, saving a list, credits, a location, a creator being added or a later page of posts as one small row that opens. So make the fewest calls an answer needs and offer the rest. Claude Code shows text only. Lead with the finding and cite a few linked posts rather than restating every row a card already shows. Make card-producing calls one at a time when the user is meant to see each. If a card fails to draw, answer from the returned data.
 
 ## Troubleshooting
 
 - **403 `access_denied`, "No Glystn account for this login".** The sign-in has no Glystn account. Sign up at https://app.glystn.com, then reconnect.
 - **"Verify your email with Glystn".** Verify the email address with Glystn, then reconnect.
 - **Out of credits.** The result names what the call costs, the balance and an upgrade link (in Claude's apps, a "Not enough credits" card). Nothing was charged and retrying fails the same way, so share the link. `credit_balance` shows the balance.
-- **A creator shows `indexed: false`**, or `creator_posts` says they aren't indexed. `index_creator` adds them; the first posts land in about 2 minutes.
+- **A creator shows `indexed: false`**, or `creator_posts` comes back empty with `crawlQueued`. `creator_posts` adds a creator Glystn doesn't have: call it again in about 90 seconds for the first posts.
 - **A trend board is still building.** Check later with `get_trend_board` and its `boardId` (with no ids it lists your boards). Never start another board for the same ask.
