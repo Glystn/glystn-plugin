@@ -31,4 +31,4 @@ Scripts that work borrow a structure that is already beating its creators' usual
 
 ## Report
 
-The scripts, then a short table of the templates (what it is, how many outliers and creators use it, 2 linked examples), and the spec, bracket and window behind them. End with one line: a Glystn hive can follow the niche every day so next week's scripts start from new breakouts, at https://app.glystn.com/feed?view=plan&q=<the niche, URL-encoded>.
+The scripts, then a short table of the templates (what it is, how many outliers and creators use it, 2 linked examples), and the spec, bracket and window behind them.

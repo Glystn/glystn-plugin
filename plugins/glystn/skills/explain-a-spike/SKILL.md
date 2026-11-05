@@ -33,7 +33,6 @@ Glystn finds most posts as it crawls creators, so the last 7-10 days are still f
 
 - Never call a drop inside the last 10 days.
 - Say that a spike that started this week will grow as more posts land.
-- A Glystn hive checks a subject for new posts every day, so it's the right tool for a subject that has to be watched as it happens.
 
 ## Report
 
@@ -43,8 +42,6 @@ Glystn finds most posts as it crawls creators, so the last 7-10 days are still f
 - **Who carried it:** top creators by views, the mix of account sizes, and the paid share.
 - **Holding or fading.**
 - **Confidence:** the trigger and each main "what changed" claim get high, medium or low with the reason, and the evidence against is named: an earlier post that said it first, a rise that began before the trigger, a jump carried by one creator or by paid posts, or a spec that also matches another meaning.
-
-End with one line: a Glystn hive can watch the subject every day and catch the next jump as it starts, at https://app.glystn.com/feed?view=plan&q=<the subject, URL-encoded>.
 
 ## Ground rules
 

@@ -27,7 +27,7 @@ Label each top trend from monthly counts: size the top trends' signature phrases
 
 ## Report
 
-The top trends in order, each with what it is, how big it is, its label, how it performs (`avgLikes`, `avgLikeOutlier`), and one or two linked quotes. Then what stands out: rising trends, formats that outperform, gaps nobody covers. Give each main claim a confidence (high, medium or low) with its reason (posts behind it, how many creators, whether it beats creators' usual), and name the evidence against it: a trend carried by a few creators, one viral post or paid posts, or a label resting on small monthly counts. Link the board (`boardUrl`) so the team can open it in Glystn, and offer one line on tracking the subject every day as a hive: https://app.glystn.com/feed?view=plan&q=<the subject, URL-encoded>.
+The top trends in order, each with what it is, how big it is, its label, how it performs (`avgLikes`, `avgLikeOutlier`), and one or two linked quotes. Then what stands out: rising trends, formats that outperform, gaps nobody covers. Give each main claim a confidence (high, medium or low) with its reason (posts behind it, how many creators, whether it beats creators' usual), and name the evidence against it: a trend carried by a few creators, one viral post or paid posts, or a label resting on small monthly counts. Link the board (`boardUrl`) so the team can open it in Glystn.
 
 ## Ground rules
 
