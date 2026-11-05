@@ -23,7 +23,7 @@ description: Use when asked "what are the trends in X", "what's trending this we
 
 ## Trend labels
 
-Label each top trend from monthly counts: size the top trends' signature phrases in one `compare_mentions` call, with the board's spec as `topic` and up to 8 phrases as specs (each gets its share of the topic's posts and its `monthly`), then compare the last 3 full months with the 3 before, never counting the month in progress. **Rising** is up 20% or more, **Fading** down 20% or more, **Steady** within 20%, and **One-off spike** is one month more than twice the others' median, then back down. On the weekly board, `trendType` also says whether a trend is timely or evergreen.
+Label the top 3 trends from monthly counts: one `count_mentions` per trend (one small row each), with the board's spec plus the trend's signature phrase as another `must` item, then compare the last 3 full months with the 3 before, never counting the month in progress. **Rising** is up 20% or more, **Fading** down 20% or more, **Steady** within 20%, and **One-off spike** is one month more than twice the others' median, then back down. On the weekly board, `trendType` also says whether a trend is timely or evergreen.
 
 ## Report
 
