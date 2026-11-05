@@ -19,8 +19,8 @@ Glystn's vetting reads each creator's own posts for every criterion and scores h
    - A market goes in `location` ("United Kingdom"). `locationStrict: true` also cuts creators whose base can't be verified; use it only for in-market offers.
    - Who the brand is and any carve-outs go in `context` ("A sports nutrition brand. Gym content is fine."). It guides the judge but never cuts anyone.
    When the brief is ambiguous, show the criteria one per line and ask before running; otherwise say what you used and go.
-3. **Check credits.** `credit_balance` is free. The run costs 1 credit per creator, charged when it starts; for a list over about 25, give the cost and confirm.
-4. **Save the list.** `create_creator_list` (free) with a plain name and the creators as `{username, platform}`. Pass `excludeBrands` with the brand and its competitors so their own accounts never land on the list. Then read the result:
+3. **Give the cost.** The run costs 1 credit per creator, charged when it starts; for a list over about 25, give the cost and confirm. No need to call `credit_balance`: a run the account can't cover starts nothing, charges nothing and says what's short.
+4. **Save the list.** `create_creator_list` (free; one small row in Claude's apps) with a plain name and the creators as `{username, platform}`. Pass `excludeBrands` with the brand and its competitors so their own accounts never land on the list. Then read the result:
    - `possibleDuplicates`: one person with two handles. Keep one.
    - `likelyBrandAccounts`: drop them unless the user wants brand pages.
    - `notIndexedYet`: Glystn reads their posts first, which takes a few minutes; they're scored on a later run.
