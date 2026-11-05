@@ -25,8 +25,6 @@ A verbatim is someone's exact words, so read the posts and quote them; never par
 - **Paid against unpaid:** what sponsored posts stress that unpaid ones don't.
 - **Method:** the spec, window, posts read, how many were paid, and that these are people who post videos, not a survey sample.
 
-End with one line: a Glystn hive can keep collecting these every day, with each post read and labeled, at https://app.glystn.com/feed?view=plan&q=<the subject, URL-encoded>.
-
 ## Ground rules
 
 - Quote as said only speech (`predictions.type` "speech" on a video); `image_description` describes visuals, and `lyrics` are sung.

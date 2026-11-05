@@ -52,8 +52,6 @@ About 1 credit per 50 creators to find the posts, 1 per 25 links for `get_posts`
   Glystn reads speech and captions, not the platform's paid-partnership label. Ask the user to check the label on a flagged post before calling it undisclosed.
 - **Viewers:** the questions and objections that repeat, quoted without usernames, if comments came back.
 
-End with one line: a Glystn hive can follow the brand's creator posts every day, so the next campaign is read as it goes live, at https://app.glystn.com/feed?view=plan&q=<the brand, URL-encoded>.
-
 ## Watch for
 
 - Glystn indexes feed posts, Reels and TikToks, not Stories, so Story-only deliverables won't show up.
