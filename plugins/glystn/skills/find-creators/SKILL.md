@@ -15,7 +15,7 @@ description: Use when asked to "find creators who...", "who should we work with 
 | A word in the bio ("RD", "dermatologist", "mom of 3") | `creator_discovery` |
 | A specific person by name | `lookup_creator` |
 
-`find_creators` ranks by on-topic posts, not size. Filter with `minFollowers`, `maxFollowers`, `countryCodes` (one country), `platform` and `startDate` (recent posting only).
+`find_creators` ranks by on-topic posts, not size. Filter with `minFollowers`, `maxFollowers`, `countryCodes` (one country), `platform` and `startDate` (recent posting only). `creator_discovery` takes `countryCodes` too, and then leaves out profiles with no country.
 
 ## Steps
 
