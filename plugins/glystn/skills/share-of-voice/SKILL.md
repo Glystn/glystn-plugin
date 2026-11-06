@@ -15,7 +15,7 @@ Each call draws a card in Claude's apps. Settle every brand's spec before drawin
 4. **Compare once,** with `compare_mentions` over the settled specs (same window and filters): each gets `total`, `share`, `monthly`, a platform split and top countries. Shares are of the specs' sum; a post naming two brands counts for both. Never draw a second comparison with a changed spec: settle specs in steps 2 and 3.
 5. **Label each brand's direction** from its `monthly`: the last 3 full months against the 3 before, never counting the month in progress. Rising (up 20% or more), Fading (down 20% or more), Steady (within 20%), or One-off spike (one month more than twice the others' median, then back down).
 6. **Offer, don't run:**
-   - **What drives each brand:** a trend board per brand, `start_trend_board` with the brand's spec and the same filters (10 credits each, 1-5 minutes; the map-trends skill reads them). The share-of-voice card's "Build a trend board for each" asks for this.
+   - **What drives each brand:** a trend board per brand, `start_trend_board` with the brand's spec and the same filters (10 credits each, 1-5 minutes; the map-trends skill reads them). Offer it only for brands whose `trendBoard.enough` is true (300+ posts with 100+ likes in the last 6 months); a smaller brand's board finds little. The share-of-voice card's trend board button asks for those brands only.
    - **Well-known brands: `brand_landscape`** (up to 5 names) for formats, sentiment, risk, sponsored share and top creators. It reads Glystn's labeled top posts (20k+ likes, since mid-May 2026), so a niche name comes back thin or `unresolved`.
 
 ## Report

@@ -47,5 +47,5 @@ For "is this a good idea for a video, product or campaign" or "does this resonat
 
 Offer these in a line at the end; run one only when the user asks.
 
-- To say what drives it, build a trend board on the same spec (the `map-trends` skill, 10 credits): its ranked trends are what the conversation is made of. Never give shares of the posts you read as sizes.
+- To say what drives it, build a trend board on the same spec (the `map-trends` skill, 10 credits): its ranked trends are what the conversation is made of. Offer it only when the search's `trendBoard.enough` is true (300+ posts a board would read); below that a board finds little, so the posts you read are the answer. Never give shares of the posts you read as sizes.
 - To find who drives it, run `find_creators` with the topic.
