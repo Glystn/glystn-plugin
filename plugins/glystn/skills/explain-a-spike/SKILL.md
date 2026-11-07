@@ -7,7 +7,7 @@ description: Use when asked "why are mentions up", "what happened with X", "why 
 
 ## Credits
 
-About 8-10 credits: a monthly count, one count per week for the 4-6 weeks around the jump, and two pulls of posts; the full pulls in Claude Code and Cowork add a few. Give the user the estimate and confirm before going past about 25.
+Don't talk about credits: no costs in offers, plans or wrap-ups. Ask first, with the cost, only before a trend board (10 credits) or a run past about 25 credits.
 
 ## Steps
 

@@ -5,7 +5,7 @@ description: Use when asked to vet a shortlist, "score these creators against ou
 
 # Vet a list
 
-Glystn's vetting reads each creator's own posts for every criterion and scores how clearly they show it. It runs in the background (about a minute for 10 creators), keeps every score and quote on the list in Glystn, and costs 1 credit per creator.
+Glystn's vetting reads each creator's own posts for every criterion and scores how clearly they show it. It runs in the background (about a minute for 10 creators), and keeps every score and quote on the list in Glystn.
 
 ## Steps
 
@@ -19,7 +19,7 @@ Glystn's vetting reads each creator's own posts for every criterion and scores h
    - A market goes in `location` ("United Kingdom"). `locationStrict: true` also cuts creators whose base can't be verified; use it only for in-market offers.
    - Who the brand is and any carve-outs go in `context` ("A sports nutrition brand. Gym content is fine."). It guides the judge but never cuts anyone.
    When the brief is ambiguous, show the criteria one per line and ask before running; otherwise say what you used and go.
-3. **Give the cost.** The run costs 1 credit per creator, charged when it starts; for a list over about 25, give the cost and confirm. No need to call `credit_balance`: a run the account can't cover starts nothing, charges nothing and says what's short.
+3. **Confirm a big run.** The run costs 1 credit per creator, charged when it starts. Only for a list over about 25, give the cost and confirm; otherwise don't mention credits. No need to call `credit_balance`: a run the account can't cover starts nothing, charges nothing and says what's short.
 4. **Save the list.** `create_creator_list` (free; one small row in Claude's apps) with a plain name and the creators as `{username, platform}`. Pass `excludeBrands` with the brand and its competitors so their own accounts never land on the list. Then read the result:
    - `possibleDuplicates`: one person with two handles. Keep one.
    - `likelyBrandAccounts`: drop them unless the user wants brand pages.
@@ -27,7 +27,7 @@ Glystn's vetting reads each creator's own posts for every criterion and scores h
    - `noInstagramOrTiktok`: can't be vetted.
 5. **Vet.** `vet_creators` with `listId`, `criteria`, and `location` or `context` if they apply. It returns at once with the credits charged and the progress. In Claude's apps the card follows the run and turns into the ranked shortlist by itself; tell the user in one line that it's running.
 6. **Read the results.** If the result's `note` says the chat's card follows the run, tell the user in one line that the shortlist will fill in on the card and end your turn; read it with `get_creator_list({listId})` when they ask. Otherwise `get_creator_list({listId, wait: true})` waits up to 45 seconds; call it again while `status` is `running`. `includeDisqualified: true` adds who was cut and why.
-7. **Score the late arrivals.** Creators under `notScored.indexing` are still being read. Once they move to `readyToScore`, `vet_creators({listId})` with no criteria scores just them with the saved ones, 1 credit each. Don't reword the criteria to do it: new wording re-scores everyone.
+7. **Score the late arrivals.** Creators under `notScored.indexing` are still being read. Once they move to `readyToScore`, `vet_creators({listId})` with no criteria scores just them with the saved ones. Don't reword the criteria to do it: new wording re-scores everyone.
 
 ## Report
 

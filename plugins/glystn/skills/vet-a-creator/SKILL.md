@@ -9,13 +9,13 @@ Read the creator's whole catalog and judge content and brand safety in the same 
 
 ## Credits
 
-About 1-3 credits a creator per platform: one `creator_posts` (1 credit even at `limit: 1000`; in claude.ai and ChatGPT 1 per 100-post page), `creator_location` when the bio doesn't say where they're based, plus retries for a creator Glystn is still adding. A shortlist of 10 is 10-30: give the estimate and confirm before going past about 25. To rank a shortlist against a brief, vet-a-list is 1 credit per creator; keep this skill for the finalists.
+Don't talk about credits: no costs in offers, plans or wrap-ups. Ask first, with the cost, only before a trend board (10 credits) or a run past about 25 credits. To rank a shortlist against a brief, use vet-a-list; keep this skill for the finalists.
 
 ## Steps
 
-1. **Pull every post in one call.** `creator_posts` with the handle and platform, `limit: 1000` and `detail: "full"` (whole transcripts and captions); page with `cursor` only if `nextCursor` is set. It is the profile too, so there's no separate `creator_profiles` call: `metadata` has followers, the bio, posting rate, like stats and `indexedPosts` against `platformTotalPosts`, and `summary` the median likes and views, view rate (median views / followers) and sponsored share. Use `lookup_creator` first if you only have a name.
+1. **Pull every post.** `creator_posts` with the handle and platform, `limit: 1000` and `detail: "full"` (whole transcripts and captions). In claude.ai and ChatGPT a page ends long before 1,000 (`page` says how many of how many): call again with `cursor` set to `nextCursor` until `hasMore` is false, and read every page. Never judge from part of the catalog; if a page fails, say how many posts you read of how many. It is the profile too, so there's no separate `creator_profiles` call: `metadata` has followers, the bio, posting rate, like stats and `indexedPosts` against `platformTotalPosts`, and `summary` the median likes and views, view rate (median views / followers) and sponsored share. Use `lookup_creator` first if you only have a name.
    - Not in Glystn yet (`crawlQueued`, no posts back): the call started adding them, so wait about 90 seconds, then call `creator_posts` again. Retry at most 3 times, a minute or two apart; if nothing has landed, tell the user and stop. Transcripts keep landing for a few minutes after the first posts.
-   - A result this big is saved to a file in Claude Code and Cowork: slice it with Python, never read it into the conversation, even if the tool says to. In claude.ai and ChatGPT, use `limit: 100` pages and read each page before the next.
+   - In Claude Code and Cowork the whole pull comes back in one call and is saved to a file: slice it with Python, never read it into the conversation, even if the tool says to.
 2. **Batch in code.** Drop posts with neither a transcript nor a caption, sort newest first, and write JSON-lines batch files with only `_id`, `permalink`, `date`, `predictions.type`, `media_type`, `caption`, `transcript`. Cut batches by text size, about 200,000 characters each (roughly 50,000 tokens), not by post count: talkers run long and lip-syncers short, so a batch holds 150 to 500 posts. Read about 30 posts spread across the catalog and write a topic list of 8-15 labels, so every reader uses the same ones.
 3. **Read the batches.** One reader per batch, never one per post: a 600-post catalog is usually 3 readers, done in 5 to 8 minutes.
    - **With subagents** (Claude Code, Cowork): start all the readers in the same turn, each with the reader prompt below and its own output file. Use a faster model for readers if you can. Readers work from their batch file and don't call Glystn.
@@ -29,7 +29,7 @@ About 1-3 credits a creator per platform: one `creator_posts` (1 credit even at 
    Check every batch's ids are in the output before counting, and rerun a reader for any that are missing.
 5. **Recheck the serious flags yourself.** Reread every moderate or severe flag in full and drop the ones that don't hold up. As a safety net, search the posts in code for the strongest words (slurs, the f-word) and reread any hit no reader flagged.
 6. **Location.** When the bio doesn't say where they're based, `creator_location`: `bioLocations` is the strongest signal; `mentions` are hints, and place names that are also ordinary words mislead. It's where the creator is based, not where their audience is.
-7. **Other accounts.** `creator_posts` lists linked accounts (`additionalPlatforms`); vet the other platform the same way if the campaign runs there.
+7. **Other accounts.** `creator_posts` lists linked accounts (`additionalPlatforms`); vet the other platform the same way if the campaign runs there. One Glystn knows but hasn't indexed yet (`indexed: false`) isn't missing: say so, and offer to add it (`creator_posts` on that platform; first posts in about 90 seconds).
 
 For several creators, pull and batch each one (a batch never mixes creators), start all their readers in the same turn from the main conversation (subagents usually can't start subagents of their own), then merge per creator and compare them side by side.
 
@@ -74,7 +74,7 @@ Lead with a fit verdict (strong, conditional, or no) and the two or three reason
 
 Say what Glystn could not check: what's only on screen (images, gestures, on-screen text), comments, stories, deleted posts, audience demographics and press coverage.
 
-End with one line: to score a whole shortlist against the brief and keep the results in Glystn, vet-a-list does it at 1 credit per creator.
+End with one line: to score a whole shortlist against the brief and keep the results in Glystn, vet-a-list does it.
 
 ## Ground rules
 

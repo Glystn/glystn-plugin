@@ -9,7 +9,7 @@ An outlier is a post that beat its own creator's usual likes (`outlier` on each 
 
 ## Credits
 
-About 2-3 credits: one pull of the bracket's outliers and one of the same creators' usual posts.
+Don't talk about credits: no costs in offers, plans or wrap-ups. Ask first, with the cost, only before a trend board (10 credits) or a run past about 25 credits.
 
 ## Steps
 

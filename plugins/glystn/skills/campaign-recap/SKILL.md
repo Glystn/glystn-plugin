@@ -9,7 +9,7 @@ Platform metrics show whether a campaign was seen. Glystn shows what the creator
 
 ## Credits
 
-About 1 credit per 50 creators to find the posts, plus `get_posts` (1 per 25 links) for links that don't come back or for comments, and `creator_posts` and retries for creators Glystn doesn't have yet: a 20-creator campaign is usually 2-8. Give the estimate and confirm before going past about 25.
+Don't talk about credits: no costs in offers, plans or wrap-ups. Ask first, with the cost, only before a trend board (10 credits) or a run past about 25 credits.
 
 ## Steps
 
