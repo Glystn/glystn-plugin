@@ -13,6 +13,10 @@ In Claude Code:
 /plugin install glystn@glystn
 ```
 
+## ChatGPT and Codex
+
+The same folder is also the ChatGPT plugin. Its listing (name, subtitle, description, category, starter prompts, review cases) is in [`plugins/glystn/.codex-plugin/plugin.json`](plugins/glystn/.codex-plugin/plugin.json). To submit or update it, zip the contents of `plugins/glystn` and upload the ZIP at [platform.openai.com/plugins](https://platform.openai.com/plugins). Listing text or skill changes need a new ZIP; changes to the Glystn server's tools are picked up on their own.
+
 ## License
 
 MIT. See [LICENSE](LICENSE). Use of the Glystn service is covered by Glystn's [terms](https://glystn.com/terms-of-service).
