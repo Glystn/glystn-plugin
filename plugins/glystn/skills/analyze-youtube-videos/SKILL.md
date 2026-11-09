@@ -5,7 +5,7 @@ description: Use when the user shares YouTube links or asks to "compare these Yo
 
 # Analyze YouTube videos
 
-Glystn reads YouTube videos live by link: `get_posts` takes up to 25 links a call (one credit) and returns, for each video, the title, channel name, description (`caption`), transcript (English captions, when the video has them), `view_count`, `like_count`, `comments_count`, `duration_seconds`, publish `date`, its top 20 `comments` (YouTube's most relevant, with likes) and `sponsoredDisclosed` (YouTube's paid-placement flag). Nothing is saved for YouTube links. YouTube isn't in Glystn's search index, so there are no YouTube counts or keyword searches: you bring the links.
+Glystn reads YouTube videos live by link: `get_posts` takes up to 25 links a call and returns, for each video, the title, channel name, description (`caption`), transcript (English captions, when the video has them), `view_count`, `like_count`, `comments_count`, `duration_seconds`, publish `date`, its top 20 `comments` (YouTube's most relevant, with likes) and `sponsoredDisclosed` (YouTube's paid-placement flag). Nothing is saved for YouTube links. YouTube isn't in Glystn's search index, so there are no YouTube counts or keyword searches: you bring the links.
 
 ## Steps
 

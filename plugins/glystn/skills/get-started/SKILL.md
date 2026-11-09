@@ -35,7 +35,7 @@ Glystn searches what people say in Instagram and TikTok videos (spoken transcrip
 
 ## Credits
 
-Every call costs 1 credit, refunded if it fails. `start_trend_board` costs 10 and `vet_creators` 1 per creator. `credit_balance`, `create_creator_list`, `get_creator_list` and the hive tools are free. `creator_posts` with `limit: 1000` is still 1 credit. Before a run of more than about 25 credits, or any trend board, give a rough estimate and ask first. There's no need to call `credit_balance` before a run: a call the account can't cover runs nothing, charges nothing and says what's short.
+Most calls cost 1 credit, refunded if it fails. `start_trend_board` costs 10 and `vet_creators` 1 per creator. `credit_balance`, `create_creator_list`, `get_creator_list` and the hive tools are free. Say this when the user asks about credits, and otherwise don't bring credits up: ask first, with the cost, only before a trend board or a run past about 25 credits. There's no need to call `credit_balance` before a run: a call the account can't cover runs nothing, charges nothing and says what's short.
 
 ## Ground rules about Glystn data
 
