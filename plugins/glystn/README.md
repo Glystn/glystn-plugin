@@ -1,6 +1,8 @@
-# Glystn plugin
+# Social Search by Glystn
 
-Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign in with a Glystn account) and adds skills for research anyone can do with social data, from founders and product teams to brands, agencies, creators, retailers, investors and researchers. Glystn searches what people say in Instagram and TikTok videos, and reads YouTube videos by link:
+Search what people actually say in TikTok and Instagram videos: the spoken words and captions, not just hashtags. Find content ideas from what is breaking out, check whether a trend is growing, pull real quotes, compare brands and find creators, for any topic. It also reads YouTube videos by link. Built for creators, founders and product teams, marketers and agencies, e-commerce sellers, analysts and journalists.
+
+The plugin connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign in with a Glystn account) and adds these skills:
 
 | Skill | For | Say this |
 |-------|-----|----------|

@@ -1,0 +1,124 @@
+{
+  "name": "glystn",
+  "version": "1.11.2",
+  "description": "Search what people say in TikTok and Instagram videos: find content ideas, spot trends, size demand, pull real quotes, compare brands and find creators for any topic. Also reads YouTube videos by link.",
+  "author": {
+    "name": "Glystn",
+    "email": "support@glystn.com",
+    "url": "https://glystn.com"
+  },
+  "homepage": "https://app.glystn.com/docs",
+  "repository": "https://github.com/Glystn/glystn-plugin",
+  "license": "MIT",
+  "keywords": [
+    "social search",
+    "social listening",
+    "content ideas",
+    "hooks",
+    "trends",
+    "market research",
+    "consumer insights",
+    "product research",
+    "competitor research",
+    "share of voice",
+    "creators",
+    "influencer marketing",
+    "influencer vetting",
+    "brand safety",
+    "sponsored content",
+    "voice of the customer",
+    "content strategy",
+    "tiktok",
+    "instagram",
+    "reels",
+    "youtube",
+    "tiktok analytics",
+    "transcripts",
+    "ugc"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Social Search by Glystn",
+    "shortDescription": "TikTok & Instagram trends",
+    "longDescription": "Search what people actually say in TikTok and Instagram videos with Glystn in ChatGPT: the spoken words and captions, not just hashtags.\n\nWith Social Search by Glystn, you can:\n• Find content ideas: see which videos are beating a creator's usual numbers in your niche, and the hooks and formats behind them.\n• Check a trend or demand: count how many videos and creators mention a product, phrase or idea, and see how that has moved over the past year.\n• Hear people in their own words: pull exact quotes, each with a link, on what people love, hate and wish for.\n• Compare brands: share of voice for up to 8 brands, products or ideas, and what drives each one.\n• Find and vet creators: build a shortlist from what creators say on camera, with their usual views and where they are.\n• Read a video by link: the transcript and numbers for a TikTok, Instagram or YouTube video.\n\nFor creators, founders and product teams, marketers and agencies, e-commerce sellers, analysts and journalists.\n\nGood to know: Glystn covers public Instagram and TikTok posts, and reads YouTube only by link. Coverage is thin before November 2025, so totals describe about the last year. Countries are the creator's, not the audience's. Requires a Glystn account.",
+    "developerName": "Glystn",
+    "category": "Data & Analytics",
+    "capabilities": [
+      "Count mentions and trends in TikTok and Instagram videos",
+      "Search videos by what is said",
+      "Compare share of voice",
+      "Find and vet creators",
+      "Read a video by link"
+    ],
+    "websiteURL": "https://glystn.com",
+    "supportURL": "https://app.glystn.com/docs",
+    "privacyPolicyURL": "https://app.glystn.com/privacy-policy",
+    "termsOfServiceURL": "https://app.glystn.com/terms-of-service",
+    "defaultPrompt": [
+      "Is protein coffee still growing or was it a spike? Show the months and the videos behind it.",
+      "What do robot vacuum owners complain about? Give me ten exact quotes with links.",
+      "What hooks do the top cottage cheese recipe videos open with right now? Write three in that style."
+    ],
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Size a topic and say whether it is growing",
+              "prompt": "Is protein coffee still growing or was it a spike? Show the months and the videos behind it.",
+              "tools_triggered": "count_mentions, exact_match_search",
+              "expected_behavior": "Reports how many videos mention protein coffee by month over the last 12 months, says whether it is rising, steady, fading or a one-off spike, and links a few of the videos behind it."
+            },
+            {
+              "description": "Pull exact quotes on a product",
+              "prompt": "What do robot vacuum owners complain about? Give me ten exact quotes with links.",
+              "tools_triggered": "social_search, exact_match_search",
+              "expected_behavior": "Returns ten quotes from videos where people complain about robot vacuums, each with a link to its video, and says how many videos the quotes were drawn from."
+            },
+            {
+              "description": "Compare share of voice",
+              "prompt": "Compare how much creators talked about matcha, cold brew and protein coffee over the last 12 months.",
+              "tools_triggered": "count_mentions, compare_mentions",
+              "expected_behavior": "Returns each drink's video count and share of the combined total for the last 12 months, with the monthly trend for each."
+            },
+            {
+              "description": "Find creators from a brief",
+              "prompt": "Find 20 US creators who talk about marathon training.",
+              "tools_triggered": "find_creators",
+              "expected_behavior": "Returns a list of US creators who post about marathon training, with each one's handle, platform and usual views."
+            },
+            {
+              "description": "Check the account's credits",
+              "prompt": "How many Glystn credits do I have left?",
+              "tools_triggered": "credit_balance",
+              "expected_behavior": "Reports the signed-in account's credit balance and plan. This call is free."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Posting is not supported: Glystn only reads public posts",
+              "prompt": "Post this video to my TikTok account and schedule two more for next week."
+            },
+            {
+              "description": "No private data: Glystn has public posts and profiles only",
+              "prompt": "Show me this creator's direct messages and the email addresses of their followers."
+            },
+            {
+              "description": "No purchases: the plugin does not sell or charge for anything",
+              "prompt": "Buy 1,000 more credits with the card on my account."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "First release: search what people say in TikTok and Instagram videos, size trends, compare share of voice, pull exact quotes, and find and vet creators."
+      }
+    }
+  }
+}
