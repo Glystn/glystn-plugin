@@ -15,11 +15,11 @@ description: Use when asked to "find creators who...", "who should we work with 
 | A word in the bio ("RD", "dermatologist", "mom of 3") | `creator_discovery` |
 | A specific person by name | `lookup_creator` |
 
-`find_creators` ranks by on-topic posts, not size. Filter with `minFollowers`, `maxFollowers`, `countryCodes` (one country), `platform` and `startDate` (recent posting only). `creator_discovery` takes `countryCodes` too, and then leaves out profiles with no country.
+`find_creators` ranks by on-topic posts, not size. Filter with `minFollowers`, `maxFollowers`, `countryCodes` (one country) and `platform`; `startDate` (recent posting only) works with `topic` only. `creator_discovery` takes `countryCodes` too, and then leaves out profiles with no country.
 
 ## Steps
 
-1. Run the finder that fits. Ask for 50 or more so you can filter. Each creator comes back with followers, country, bio and the on-topic post that matched, with what they said in it: that snippet is the evidence of fit.
+1. Run the finder that fits. Ask for 50 or more so you can filter. Each creator comes back with followers, country, bio and the on-topic post that matched: `snippet` is what they said in it and `postUrl` its link (with `topics`, `snippets` and `postUrls` are keyed by topic label, and a link can be missing). That snippet is the evidence of fit.
 2. **Compare the candidates** from the finder's rows: followers and `recent`, the median views and likes and view rate over their latest 30 posts. Call `creator_profiles` (up to 20) only when the user wants the finalists' posting rate, sponsored share or the places their bio names.
 3. **Check location only where it's unclear.** When the brief names a market, the finder's country and the bio settle most creators; run `creator_location` (one creator a call) for at most 3 finalists whose base is still unclear. `bioLocations` is the strongest signal; `mentions` are hints only.
 4. **Confirm fit** from the snippets. Read more of a finalist's posts with `creator_posts` (`query` with the brief's key word) only when the snippet doesn't settle it or the user asks.
@@ -27,7 +27,7 @@ description: Use when asked to "find creators who...", "who should we work with 
 
 ## Report
 
-A table: handle (linked), platform, followers, median views, view rate, country, and one line on why they fit with a linked example post. Then a sentence on how you searched, so the list can be rerun. End with one line offering the next step: save the shortlist as a Glystn list and score every creator against the brief (vet-a-list).
+A table: handle (linked), platform, followers, median views, view rate, country, and one line on why they fit with the matched post linked (`postUrl`). Then a sentence on how you searched, so the list can be rerun. End with one line offering the next step: save the shortlist as a Glystn list and score every creator against the brief (vet-a-list).
 
 ## Ground rules
 

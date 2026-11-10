@@ -5,14 +5,14 @@ description: Use when asked "write me scripts", "give me hooks", "content ideas 
 
 # Write content scripts
 
-Scripts that work borrow a structure that is already beating its creators' usual numbers, not a line someone else said. So start from outliers (`outlier` on each row: 3 means three times the creator's usual likes) from accounts the same size, then write in the account's voice. For the analysis behind it (which patterns win and lose), use the creator-content-strategy skill; this one turns patterns into scripts.
+Scripts that work borrow a structure that is already beating its creators' usual numbers, not a line someone else said. So start from outliers (posts that beat their creator's usual likes: on the full rows pulled here, `likeOutlier` from `exact_match_search` and `like_outlier` from `creator_posts`, where 3 means three times the usual) from accounts the same size, then write in the account's voice. For the analysis behind it (which patterns win and lose), use the creator-content-strategy skill; this one turns patterns into scripts.
 
 ## Steps
 
 1. **The account.** With a handle, one `creator_posts` call (`limit: 50`, `detail: "full"`): its `metadata` and `summary` give followers and usual likes, and the posts give the voice. Without one, ask for the niche and the account's size, or write for 10k-100k. The size bracket (under 10k, 10k-100k, 100k-1M, 1M+) decides which outliers count.
 2. **What is breaking out now.** Write the niche as a keyword spec and pull `exact_match_search` with `outliersOnly: true`, `minFollowers`/`maxFollowers` for the bracket, `contentType: "speech"` (scripts need talking examples), `sort: "outlier"`, the last 60 days, `detail: "full"` for whole transcripts and `limit: 50` (100 in Claude Code and Cowork, where the result is saved to a file). Lower `minLikes` for small brackets (50-100 under 10k) and check `minLikesApplied`. One pull is enough: don't pull the top posts again.
 3. **Take the top 30 apart.** For each: the hook (first sentence), the format (talking to camera, POV, list, story, tutorial, reaction), the beats in order, the payoff, the ask at the end, and the length in words. Group them into 4-6 templates that show up for at least 3 different creators. One creator's repeat hit is not a template.
-4. **The account's voice.** From its own posts: how it opens, sentence length, words and running bits it reuses, topics it owns, and what its own best posts (highest `outlier`) did. Scripts should sound like these posts, not like the outliers.
+4. **The account's voice.** From its own posts: how it opens, sentence length, words and running bits it reuses, topics it owns, and what its own best posts (highest `like_outlier`) did. Scripts should sound like these posts, not like the outliers.
 5. **Write the scripts.** Five unless asked otherwise, each about as long as its template's outliers (count their words: about 2.5 spoken words a second; often 45-90 seconds):
    - the idea in one line, the template, and 2 linked outliers it is modeled on;
    - 3 hook options;

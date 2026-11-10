@@ -1,6 +1,8 @@
-# Glystn plugin
+# Social Search by Glystn
 
-Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign in with a Glystn account) and adds skills for research anyone can do with social data, from founders and product teams to brands, agencies, creators, retailers, investors and researchers. Glystn searches what people say in Instagram and TikTok videos, and reads YouTube videos by link:
+Search what people actually say in TikTok and Instagram videos: the spoken words and captions, not just hashtags. Find content ideas from what is breaking out, check whether a trend is growing, pull real quotes, compare brands and find creators, for any topic. It also reads YouTube videos by link. Built for creators, founders and product teams, marketers and agencies, e-commerce sellers, analysts and journalists.
+
+The plugin connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign in with a Glystn account) and adds these skills:
 
 | Skill | For | Say this |
 |-------|-----|----------|
@@ -21,7 +23,7 @@ Connects Claude to Glystn's MCP server (`https://app.glystn.com/api/mcp`, sign i
 | `analyze-youtube-videos` | YouTube videos by link: transcripts, views, top comments and paid placements, compared | "Compare these five YouTube reviews of robot vacuums: <links>" |
 | `read-a-hive` | A hive (a standing watchlist Glystn keeps reading for a subject): its numbers, slices, posts and weekly report | "What changed in my hive this week?" |
 
-The skills name tools by their MCP names (`count_mentions`, `find_creators`, ...), so they work whichever way the server is connected. Each call costs 1 Glystn credit (refunded if it fails), a trend board 10 and vetting 1 per creator; `credit_balance`, saving and reading lists, and the hive tools are free, and the longer skills estimate their cost and ask before a big run. In Claude's apps, results also draw as cards (posts with covers, mention charts, creator cards, vetting progress, credits); Claude Code shows text.
+The skills name tools by their MCP names (`count_mentions`, `find_creators`, ...), so they work whichever way the server is connected. Each call costs 1 Glystn credit (refunded if it fails), a trend board 10 and vetting 1 per creator; `credit_balance`, saving and reading lists, listing and reading trend boards (`get_trend_board` without a `trendId`) and the hive tools are free, and the longer skills estimate their cost and ask before a big run. In Claude's apps, results also draw as cards (posts with covers, mention charts, creator cards, vetting progress, credits); Claude Code shows text.
 
 Install in Claude Code with `/plugin install glystn --marketplace Glystn/glystn-plugin` (on older versions, `/plugin marketplace add Glystn/glystn-plugin`, then `/plugin install glystn@glystn`). To try a local copy: `claude --plugin-dir <path to this folder>`.
 
