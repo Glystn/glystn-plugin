@@ -53,8 +53,8 @@
     ],
     "websiteURL": "https://glystn.com",
     "supportURL": "https://app.glystn.com/docs",
-    "privacyPolicyURL": "https://glystn.com/privacy-policy",
-    "termsOfServiceURL": "https://glystn.com/terms-of-service",
+    "privacyPolicyURL": "https://app.glystn.com/privacy-policy",
+    "termsOfServiceURL": "https://app.glystn.com/terms-of-service",
     "defaultPrompt": [
       "Is protein coffee still growing or was it a spike? Show the months and the videos behind it.",
       "What do robot vacuum owners complain about? Give me ten exact quotes with links.",

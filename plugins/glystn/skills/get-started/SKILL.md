@@ -57,6 +57,6 @@ In Claude's apps every call draws in the chat: posts with covers, share-of-voice
 
 - **403 `access_denied`, "No Glystn account for this login".** The sign-in has no Glystn account. Sign up at https://app.glystn.com, then reconnect.
 - **"Verify your email with Glystn".** Verify the email address with Glystn, then reconnect.
-- **Out of credits.** The result names what the call costs, the balance and an upgrade link (in Claude's apps, a "Not enough credits" card). Nothing was charged and retrying fails the same way, so share the link. `credit_balance` shows the balance.
+- **Out of credits.** The result names what the call costs, the balance and a link for more credits (in Claude's apps, a "Not enough credits" card). Nothing was charged and retrying fails the same way, so share the link. `credit_balance` shows the balance.
 - **A creator shows `indexed: false`**, or `creator_posts` comes back empty with `crawlQueued`. `creator_posts` adds a creator Glystn doesn't have: call it again in about 90 seconds for the first posts.
 - **A trend board is still building.** Check later with `get_trend_board` and its `boardId` (with no ids it lists your boards). Never start another board for the same ask.
