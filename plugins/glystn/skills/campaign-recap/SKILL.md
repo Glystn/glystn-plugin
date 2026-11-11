@@ -21,20 +21,20 @@ Don't talk about credits: no costs in offers, plans or wrap-ups. Ask first, with
    - any must-say lines (a claim, an offer, a code) and must-not-say lines.
 
    Without key messages, report what the posts stressed most instead.
-2. **Find the posts.** Run `exact_match_search` with:
+2. **Find the posts.** Run `find_posts_by_keyword` with:
    - the brand in `must` (put the campaign hashtag or code in the same OR-group);
    - `usernames` set to the creators (up to 50 a call);
    - the dates as `startDate`/`endDate`;
    - `minLikes: 0` and `detail: "full"` (check `minLikesApplied` is 0 on the result, so small posts aren't dropped).
 
-   If the user gave links that don't come back, run `get_posts` with them (25 a call); it saves a post Glystn didn't have and queues its creator. If none of a creator's posts come back, call `creator_posts` for them: it adds a creator Glystn doesn't have (`crawlQueued`). Wait about 90 seconds, then retry the search or `creator_posts` at most 3 times, a minute or two apart, and report any creator whose posts still haven't landed.
+   If the user gave links that don't come back, run `get_posts_by_url` with them (25 a call); it saves a post Glystn didn't have and queues its creator. If none of a creator's posts come back, call `get_creator_posts` for them: it adds a creator Glystn doesn't have (`crawlQueued`). Wait about 90 seconds, then retry the search or `get_creator_posts` at most 3 times, a minute or two apart, and report any creator whose posts still haven't landed.
 3. **Read every post against the brief.**
    - **Up to about 40 posts:** read them yourself.
    - **More than that:** use reader subagents. Use batch files of about 200,000 characters and one reader per batch, all started in the same turn. Each reader writes JSON lines with code to its own output file; merge them in code and check every id is covered.
 
    Each post gets this line:
    `{"id", "messages": {"<message>": "said" | "caption only" | "missing"}, "bestLine": "<the exact words that deliver a message best>", "disclosure": "spoken" | "caption" | "none", "mustNot": ["<exact words>"], "extraClaims": ["<claims beyond the brief, exact words>"], "tone": "enthusiastic" | "matter-of-fact" | "lukewarm" | "negative"}`
-4. **Offer what viewers said.** `get_posts` with the campaign links (25 a call) returns comments where Glystn has them (mostly Instagram); run it when the user wants viewers' reactions, and read them for what viewers asked, praised and pushed back on. Quote comment text only, never the commenter's username.
+4. **Offer what viewers said.** `get_posts_by_url` with the campaign links (25 a call) returns comments where Glystn has them (mostly Instagram); run it when the user wants viewers' reactions, and read them for what viewers asked, praised and pushed back on. Quote comment text only, never the commenter's username.
 5. **Merge in code.**
    - **Per message:** the share of posts that said it aloud, the share with it in the caption only, and the share of total views that heard it.
    - **Per creator:** posts, views (`plays` on these full rows), followers (`followersCount`), `likeOutlier` (likes against the creator's usual post: 1 is usual), messages hit, and disclosure.

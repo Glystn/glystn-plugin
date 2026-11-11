@@ -9,8 +9,8 @@ Glystn searches what people say in Instagram and TikTok videos (spoken transcrip
 
 ## Steps
 
-1. **Check the tools are connected.** Look for Glystn's tools (`count_mentions`, `exact_match_search`, `credit_balance` and the rest). None means the connector isn't connected or signed in: in Claude Code, run `/mcp` and sign in to the glystn server; in Claude's apps, connect Glystn under Connectors. Stop until it's connected.
-2. **Credits, free.** `credit_balance` returns `credits`, `plan`, `unlimited`, any `trial`, and `costs`. Give the balance in one line. `unlimited: true` means the account has unlimited credits.
+1. **Check the tools are connected.** Look for Glystn's tools (`count_mentions`, `find_posts_by_keyword`, `get_credit_balance` and the rest). None means the connector isn't connected or signed in: in Claude Code, run `/mcp` and sign in to the glystn server; in Claude's apps, connect Glystn under Connectors. Stop until it's connected.
+2. **Credits, free.** `get_credit_balance` returns `credits`, `plan`, `unlimited`, any `trial`, and `costs`. Give the balance in one line. `unlimited: true` means the account has unlimited credits.
 3. **Hives, free.** If `list_hives` is among the tools, call it and name the user's hives with their links. No such tool, or an empty list, means no hives: don't bring them up again.
 4. **Route.** Match the request to a skill below and follow that skill. When it's open ("what can you do"), show the list in plain words and ask which one.
 5. **Ask once, only when it matters.** One compact question, and only when a gap would change the tool inputs: the market (country), the platform, the time window, the account's size, the brand's competitors. Otherwise pick a sensible default, say which, and go.
@@ -35,14 +35,14 @@ Glystn searches what people say in Instagram and TikTok videos (spoken transcrip
 
 ## Credits
 
-Most calls cost 1 credit, refunded if it fails. `start_trend_board` costs 10 and `vet_creators` 1 per creator. `credit_balance`, `create_creator_list`, `get_creator_list`, `get_trend_board` without a `trendId` (listing and reading boards) and the hive tools are free. Say this when the user asks about credits, and otherwise don't bring credits up: ask first, with the cost, only before a trend board or a run past about 25 credits. There's no need to call `credit_balance` before a run: a call the account can't cover runs nothing, charges nothing and says what's short.
+Most calls cost 1 credit, refunded if it fails. `start_trend_board` costs 10 and `vet_creator_list` 1 per creator. `get_credit_balance`, `create_creator_list`, `get_creator_list`, `get_trend_board` without a `trendId` (listing and reading boards) and the hive tools are free. Say this when the user asks about credits, and otherwise don't bring credits up: ask first, with the cost, only before a trend board or a run past about 25 credits. There's no need to call `get_credit_balance` before a run: a call the account can't cover runs nothing, charges nothing and says what's short.
 
 ## Ground rules about Glystn data
 
-- **Coverage.** Instagram and TikTok transcripts and captions are searched, thin before November 2025. YouTube is read only by link with `get_posts`, never searched or counted.
-- **What was said.** Only `textKind: "speech"` is quotable as something a person said; compact and full rows both carry it (on a `get_posts` row, read `predictions.type` "speech" on a video). `image_description` describes the visuals of an image or carousel, `lyrics` are sung, and `caption` means there's no transcript.
-- **Like floor.** `exact_match_search` returns only posts with 1,000+ likes unless you pass `minLikes`. Check `minLikesApplied` on the result before reading its posts as all posts; `totalMatches` counts every one.
-- **Big totals.** `totalMatches` stops counting near 200,000 a platform. When a result or one of its `platformBreakdown` rows carries `totalIsFloor: true`, say "at least" that many (200K+), never the figure as a size; on `exact_match_search`, `matchesAtMinLikesIsFloor: true` says the same of `matchesAtMinLikes`. Size a big topic from `count_mentions`' `last12Months`, which is always exact; with a `startDate` its `totalMatches` is exact for those dates too.
+- **Coverage.** Instagram and TikTok transcripts and captions are searched, thin before November 2025. YouTube is read only by link with `get_posts_by_url`, never searched or counted.
+- **What was said.** Only `textKind: "speech"` is quotable as something a person said; compact and full rows both carry it (on a `get_posts_by_url` row, read `predictions.type` "speech" on a video). `image_description` describes the visuals of an image or carousel, `lyrics` are sung, and `caption` means there's no transcript.
+- **Like floor.** `find_posts_by_keyword` returns only posts with 1,000+ likes unless you pass `minLikes`. Check `minLikesApplied` on the result before reading its posts as all posts; `totalMatches` counts every one.
+- **Big totals.** `totalMatches` stops counting near 200,000 a platform. When a result or one of its `platformBreakdown` rows carries `totalIsFloor: true`, say "at least" that many (200K+), never the figure as a size; on `find_posts_by_keyword`, `matchesAtMinLikesIsFloor: true` says the same of `matchesAtMinLikes`. Size a big topic from `count_mentions`' `last12Months`, which is always exact; with a `startDate` its `totalMatches` is exact for those dates too.
 - **Country** is where the creator is based, not where their audience is.
 - **Freshness.** The newest 7-10 days are still filling in, so never read the latest week as a drop.
 - **Missing numbers** are unknown, not zero: hidden Instagram likes are stored as 3, and many Instagram posts have no views.
@@ -57,6 +57,6 @@ In Claude's apps every call draws in the chat: posts with covers, share-of-voice
 
 - **403 `access_denied`, "No Glystn account for this login".** The sign-in has no Glystn account. Sign up at https://app.glystn.com, then reconnect.
 - **"Verify your email with Glystn".** Verify the email address with Glystn, then reconnect.
-- **Out of credits.** The result names what the call costs, the balance and a link for more credits (in Claude's apps, a "Not enough credits" card). Nothing was charged and retrying fails the same way, so share the link. `credit_balance` shows the balance.
-- **A creator shows `indexed: false`**, or `creator_posts` comes back empty with `crawlQueued`. `creator_posts` adds a creator Glystn doesn't have: call it again in about 90 seconds for the first posts.
+- **Out of credits.** The result names what the call costs, the balance and a link for more credits (in Claude's apps, a "Not enough credits" card). Nothing was charged and retrying fails the same way, so share the link. `get_credit_balance` shows the balance.
+- **A creator shows `indexed: false`**, or `get_creator_posts` comes back empty with `crawlQueued`. `get_creator_posts` adds a creator Glystn doesn't have: call it again in about 90 seconds for the first posts.
 - **A trend board is still building.** Check later with `get_trend_board` and its `boardId` (with no ids it lists your boards). Never start another board for the same ask.

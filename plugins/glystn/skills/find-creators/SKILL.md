@@ -9,20 +9,20 @@ description: Use when asked to "find creators who...", "who should we work with 
 
 | The brief | Tool |
 |-----------|------|
-| Creators who talk about a subject in their videos ("vegan meal prep", "running injuries") | `find_creators` with `topic` |
-| Creators who cover several subjects together ("a football club and coffee") | `find_creators` with `topics` (2-4, each a label plus `about` or `keywords`) |
-| Creators like these posts | `find_creators` with `likePosts` (1-5 post URLs) |
-| A word in the bio ("RD", "dermatologist", "mom of 3") | `creator_discovery` |
-| A specific person by name | `lookup_creator` |
+| Creators who talk about a subject in their videos ("vegan meal prep", "running injuries") | `find_creators_by_content` with `topic` |
+| Creators who cover several subjects together ("a football club and coffee") | `find_creators_by_content` with `topics` (2-4, each a label plus `about` or `keywords`) |
+| Creators like these posts | `find_creators_by_content` with `likePosts` (1-5 post URLs) |
+| A word in the bio ("RD", "dermatologist", "mom of 3") | `find_creators_by_bio` |
+| A specific person by name | `find_creator_by_name` |
 
-`find_creators` ranks by on-topic posts, not size. Filter with `minFollowers`, `maxFollowers`, `countryCodes` (one country) and `platform`; `startDate` (recent posting only) works with `topic` only. `creator_discovery` takes `countryCodes` too, and then leaves out profiles with no country.
+`find_creators_by_content` ranks by on-topic posts, not size. Filter with `minFollowers`, `maxFollowers`, `countryCodes` (one country) and `platform`; `startDate` (recent posting only) works with `topic` only. `find_creators_by_bio` takes `countryCodes` too, and then leaves out profiles with no country.
 
 ## Steps
 
 1. Run the finder that fits. Ask for 50 or more so you can filter. Each creator comes back with followers, country, bio and the on-topic post that matched: `snippet` is what they said in it and `postUrl` its link (with `topics`, `snippets` and `postUrls` are keyed by topic label, and a link can be missing). That snippet is the evidence of fit.
-2. **Compare the candidates** from the finder's rows: followers and `recent`, the median views and likes and view rate over their latest 30 posts. Call `creator_profiles` (up to 20) only when the user wants the finalists' posting rate, sponsored share or the places their bio names.
-3. **Check location only where it's unclear.** When the brief names a market, the finder's country and the bio settle most creators; run `creator_location` (one creator a call) for at most 3 finalists whose base is still unclear. `bioLocations` is the strongest signal; `mentions` are hints only.
-4. **Confirm fit** from the snippets. Read more of a finalist's posts with `creator_posts` (`query` with the brief's key word) only when the snippet doesn't settle it or the user asks.
+2. **Compare the candidates** from the finder's rows: followers and `recent`, the median views and likes and view rate over their latest 30 posts. Call `get_creator_stats` (up to 20) only when the user wants the finalists' posting rate, sponsored share or the places their bio names.
+3. **Check location only where it's unclear.** When the brief names a market, the finder's country and the bio settle most creators; run `get_creator_location` (one creator a call) for at most 3 finalists whose base is still unclear. `bioLocations` is the strongest signal; `mentions` are hints only.
+4. **Confirm fit** from the snippets. Read more of a finalist's posts with `get_creator_posts` (`query` with the brief's key word) only when the snippet doesn't settle it or the user asks.
 
 
 ## Report
