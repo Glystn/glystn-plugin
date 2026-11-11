@@ -1,6 +1,6 @@
 {
   "name": "glystn",
-  "version": "1.11.3",
+  "version": "1.12.0",
   "description": "Search what people say in TikTok and Instagram videos: find content ideas, spot trends, size demand, pull real quotes, compare brands and find creators for any topic. Also reads YouTube videos by link.",
   "author": {
     "name": "Glystn",
@@ -72,13 +72,13 @@
             {
               "description": "Size a topic and say whether it is growing",
               "prompt": "Is protein coffee still growing or was it a spike? Show the months and the videos behind it.",
-              "tools_triggered": "count_mentions, exact_match_search",
+              "tools_triggered": "count_mentions, find_posts_by_keyword",
               "expected_behavior": "Reports how many videos mention protein coffee by month over the last 12 months, says whether it is rising, steady, fading or a one-off spike, and links a few of the videos behind it."
             },
             {
               "description": "Pull exact quotes on a product",
               "prompt": "What do robot vacuum owners complain about? Give me ten exact quotes with links.",
-              "tools_triggered": "social_search, exact_match_search",
+              "tools_triggered": "find_posts_by_meaning, find_posts_by_keyword",
               "expected_behavior": "Returns ten quotes from videos where people complain about robot vacuums, each with a link to its video, and says how many videos the quotes were drawn from."
             },
             {
@@ -90,13 +90,13 @@
             {
               "description": "Find creators from a brief",
               "prompt": "Find 20 US creators who talk about marathon training.",
-              "tools_triggered": "find_creators",
+              "tools_triggered": "find_creators_by_content",
               "expected_behavior": "Returns a list of US creators who post about marathon training, with each one's handle, platform and usual views."
             },
             {
               "description": "Check the account's credits",
               "prompt": "How many Glystn credits do I have left?",
-              "tools_triggered": "credit_balance",
+              "tools_triggered": "get_credit_balance",
               "expected_behavior": "Reports the signed-in account's credit balance and plan. This call is free."
             }
           ],

@@ -13,7 +13,7 @@ Answer "how big is this conversation, and where is it going" with numbers from G
    - Names that are also everyday words (a brand called Glow, Bloom or Arc) collide. Add a context item (`[["glow"], ["serum", "moisturizer", "skincare"]]`) or `mustNot` terms.
    - Leave `match` at `phrase`; use `all_words` only for loose descriptions, never for names or sayings.
 2. **Size it** with `count_mentions`. Read `last12Months`, `monthly`, the per-platform split, `byCountry` and `byLikeFloor` (how much of it reaches 1,000+ likes).
-3. **Check the matches and find the quotes in one pull.** Pull 20-30 posts with `exact_match_search` (`minLikes: 0`, `sort: "likes"`) and skim them. They are both the check and the quotes for the report, so don't pull again for quotes. If many are off-topic, tighten the spec and count again. Say which spec you settled on.
+3. **Check the matches and find the quotes in one pull.** Pull 20-30 posts with `find_posts_by_keyword` (`minLikes: 0`, `sort: "likes"`) and skim them. They are both the check and the quotes for the report, so don't pull again for quotes. If many are off-topic, tighten the spec and count again. Say which spec you settled on.
 4. **Compare variants only when the name is unsettled:** one `compare_mentions` for 2-8 phrasings or competing terms.
 5. **Label the direction** (below), then **report**: monthly volume and the label, which platform leads, top creator countries, and 2-3 quotes from that pull's high-engagement posts, each linked.
 
@@ -31,13 +31,13 @@ Give the label with the two 3-month totals behind it.
 
 For "is this a good idea for a video, product or campaign" or "does this resonate":
 1. Size the idea with `count_mentions` and give it a trend label.
-2. Pull the top outliers and their words in one call: `exact_match_search` with `outliersOnly: true`, `sort: "outlier"`, `minLikes: 0`, `detail: "full"`, `limit: 30`. Posts that beat their creator's usual likes (`likeOutlier` on these full rows) show the idea lands, not just that it's common. In the ones that talk (`textKind: "speech"`), note the wants, complaints and questions that repeat, and who is already doing the idea.
+2. Pull the top outliers and their words in one call: `find_posts_by_keyword` with `outliersOnly: true`, `sort: "outlier"`, `minLikes: 0`, `detail: "full"`, `limit: 30`. Posts that beat their creator's usual likes (`likeOutlier` on these full rows) show the idea lands, not just that it's common. In the ones that talk (`textKind: "speech"`), note the wants, complaints and questions that repeat, and who is already doing the idea.
 3. **Verdict:** go, test small, or skip, with a confidence (high, medium or low) and its reason, the evidence against it, and 2-3 linked quotes. Thin volume can mean early rather than dead: say which the outliers point to.
 
 ## Reading the numbers
 
 - Coverage is thin before November 2025: treat all-time totals as about the last year, and don't read growth into the earliest months.
-- `exact_match_search` returns only posts with 1,000+ likes unless you pass `minLikes`: check `minLikesApplied` on the result. Its `totalMatches` still counts every post.
+- `find_posts_by_keyword` returns only posts with 1,000+ likes unless you pass `minLikes`: check `minLikesApplied` on the result. Its `totalMatches` still counts every post.
 - A `totalMatches` with `totalIsFloor: true` stopped counting near 200,000 a platform: say "at least" that many, and size a big topic from `count_mentions`' `last12Months`, which is always exact.
 - Quote only `textKind: "speech"` as something a creator said. `image_description` describes the visuals of an image or carousel, and `lyrics` are sung.
 - Countries are where the creator is based, not their audience. Missing numbers are unknown, not zero.
@@ -50,4 +50,4 @@ For "is this a good idea for a video, product or campaign" or "does this resonat
 Offer these in a line at the end; run one only when the user asks.
 
 - To say what drives it, build a trend board on the same spec (the `map-trends` skill, 10 credits): its ranked trends are what the conversation is made of. Offer it only when the search's `trendBoard.enough` is true (300+ posts a board would read); below that a board finds little, so the posts you read are the answer. Never give shares of the posts you read as sizes.
-- To find who drives it, run `find_creators` with the topic.
+- To find who drives it, run `find_creators_by_content` with the topic.

@@ -7,13 +7,13 @@ description: Use when asked "who does this brand pay", "which creators are spons
 
 ## Steps
 
-1. **Pull the sponsored mentions** with `exact_match_search`: the brand as one item and disclosure language as another, `minLikes: 0`, `detail: "full"` and `limit: 500`, or in claude.ai and ChatGPT `limit: 100` with `sort: "likes"` (check `minLikesApplied` is 0; likes rank both platforms on one scale, while `sort: "views"` ranks only TikTok by views):
+1. **Pull the sponsored mentions** with `find_posts_by_keyword`: the brand as one item and disclosure language as another, `minLikes: 0`, `detail: "full"` and `limit: 500`, or in claude.ai and ChatGPT `limit: 100` with `sort: "likes"` (check `minLikesApplied` is 0; likes rank both platforms on one scale, while `sort: "views"` ranks only TikTok by views):
    `must: [["brandname"], ["ad", "sponsored", "paid partnership", "partner", "discount code", "use code", "gifted", "affiliate"]]`
    Hashtags match as words, so `ad` also catches `#ad`. For the paid share, count the brand alone with `count_mentions` and set the pull's `totalMatches` against it, rather than pulling every mention. A `totalMatches` with `totalIsFloor: true` stopped counting near 200,000 a platform: say "at least", and give both calls the same `startDate`, which makes the `count_mentions` total exact.
 2. **Group by creator** with code: posts per creator, dates, median likes and views (`likes` and `plays` on full rows; `likes` and `views` on compact ones), and the share of their brand posts that carry disclosures.
-3. **Profile the top creators** with one `creator_profiles` call (up to 20): followers, view rate and overall sponsored share, which shows how many brands they work with. Their median likes and views are the baseline the paid posts are measured against.
-4. **Check the creative**: read the top paid posts from that pull and name the hooks, offers and formats that recur. `get_posts` only for specific links the user gives.
-5. **Offer, for a well-known brand:** `brand_landscape` with `sponsoredOnly: true` gives sponsored formats, drivers and top creators from Glystn's labeled top posts (20k+ likes, since mid-May 2026). It comes back thin for smaller brands, so run it only when the user wants it.
+3. **Profile the top creators** with one `get_creator_stats` call (up to 20): followers, view rate and overall sponsored share, which shows how many brands they work with. Their median likes and views are the baseline the paid posts are measured against.
+4. **Check the creative**: read the top paid posts from that pull and name the hooks, offers and formats that recur. `get_posts_by_url` only for specific links the user gives.
+5. **Offer, for a well-known brand:** `compare_brands` with `sponsoredOnly: true` gives sponsored formats, drivers and top creators from Glystn's labeled top posts (20k+ likes, since mid-May 2026). It comes back thin for smaller brands, so run it only when the user wants it.
 
 ## Report
 

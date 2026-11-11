@@ -5,12 +5,12 @@ description: Use when the user shares YouTube links or asks to "compare these Yo
 
 # Analyze YouTube videos
 
-Glystn reads YouTube videos live by link: `get_posts` takes up to 25 links a call and returns, for each video, the title, channel name, description (`caption`), transcript (English captions, when the video has them), `view_count`, `like_count`, `comments_count`, `duration_seconds`, publish `date`, its top 20 `comments` (YouTube's most relevant, with likes) and `sponsoredDisclosed` (YouTube's paid-placement flag). Nothing is saved for YouTube links. YouTube isn't in Glystn's search index, so there are no YouTube counts or keyword searches: you bring the links.
+Glystn reads YouTube videos live by link: `get_posts_by_url` takes up to 25 links a call and returns, for each video, the title, channel name, description (`caption`), transcript (English captions, when the video has them), `view_count`, `like_count`, `comments_count`, `duration_seconds`, publish `date`, its top 20 `comments` (YouTube's most relevant, with likes) and `sponsoredDisclosed` (YouTube's paid-placement flag). Nothing is saved for YouTube links. YouTube isn't in Glystn's search index, so there are no YouTube counts or keyword searches: you bring the links.
 
 ## Steps
 
 1. **Get the links.** From the user, or find them with web search (the videos that rank for the question, a channel's recent uploads, the videos an AI answer cites). Keep watch, Shorts, live and youtu.be links.
-2. **Read them.** `get_posts` with the links. A long video's transcript runs about 1,000 characters a minute, so 25 videos can be several hundred thousand characters: in Claude Code and Cowork the result is saved to a file, so open it with code and never read it into the conversation. In claude.ai and ChatGPT, send 5 links a call. A video in `metadata.failed` (private, removed, a bad link) is named in the report, never guessed at.
+2. **Read them.** `get_posts_by_url` with the links. A long video's transcript runs about 1,000 characters a minute, so 25 videos can be several hundred thousand characters: in Claude Code and Cowork the result is saved to a file, so open it with code and never read it into the conversation. In claude.ai and ChatGPT, send 5 links a call. A video in `metadata.failed` (private, removed, a bad link) is named in the report, never guessed at.
 3. **Code each video:**
    - the question or claim in the title, and the verdict it lands on;
    - brands said aloud (transcript) against brands only written (title, description);
