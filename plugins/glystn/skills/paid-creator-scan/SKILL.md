@@ -13,7 +13,7 @@ description: Use when asked "who does this brand pay", "which creators are spons
 2. **Group by creator** with code: posts per creator, dates, median likes and views (`likes` and `plays` on full rows; `likes` and `views` on compact ones), and the share of their brand posts that carry disclosures.
 3. **Profile the top creators** with one `get_creator_stats` call (up to 20): followers, view rate and overall sponsored share, which shows how many brands they work with. Their median likes and views are the baseline the paid posts are measured against.
 4. **Check the creative**: read the top paid posts from that pull and name the hooks, offers and formats that recur. `get_posts_by_url` only for specific links the user gives.
-5. **Offer, for a well-known brand:** `compare_brands` with `sponsoredOnly: true` gives sponsored formats, drivers and top creators from Glystn's labeled top posts (20k+ likes, since mid-May 2026). It comes back thin for smaller brands, so run it only when the user wants it.
+5. **Offer, for a well-known brand:** `compare_brands` with `sponsoredOnly: true` gives sponsored formats, hooks, drivers and top creators from Glystn's labeled posts (posts with 1,000+ likes as they're found, older posts only the most-liked ones). It comes back thin for smaller brands, so run it only when the user wants it.
 
 ## Report
 
